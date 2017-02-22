@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   titlePrefix = '>>';
   title = 'Hero Detail';
   msg = 'no clicked';
-  name = 'not inited';
+  @Output('outputName') name = 'not inited';
   
   ok() {
     this.msg = 'clicked';
