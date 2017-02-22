@@ -1,5 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 
+import { DataService } from './data.service';
+
 @Component({
   moduleId: module.id,
   selector: 'app-root',
@@ -11,6 +13,10 @@ export class AppComponent implements OnInit {
   title = 'Hero Detail';
   msg = 'no clicked';
   @Output('outputName') name = 'not inited';
+
+  constructor(dataService: DataService) {
+    this.name = dataService.getHeroName();
+  }
   
   ok() {
     this.msg = 'clicked';
