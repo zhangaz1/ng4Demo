@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -6,12 +6,19 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   titlePrefix = '>>';
   title = 'Hero Detail';
   msg = 'no clicked';
+  name = 'not inited';
   
   ok() {
     this.msg = 'clicked';
+  }
+
+  ngOnInit() {
+    setTimeout(()=> {
+      this.name = 'init named'
+    }, 2500);
   }
 }
