@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, Inject, Optional } from '@angular/core';
 
 import { DataService } from './data.service';
 
@@ -14,12 +14,15 @@ export class AppComponent implements OnInit {
   msg = 'no clicked';
   @Output('outputName') name = 'not inited';
 
-  constructor(dataService: DataService) {
+  constructor(
+      @Inject(DataService) @Optional() private dataService: DataService
+    ) {
     this.name = dataService.getHeroName();
   }
   
   ok() {
     this.msg = 'clicked';
+    console.log('heroName:', this.dataService.getHeroName());
   }
 
   ngOnInit() {
