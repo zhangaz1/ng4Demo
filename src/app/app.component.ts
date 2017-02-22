@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService
-      .getHeroes()
+      .getHeroesSlowly()
       .then(heroes => this.heroes = heroes);
   }
 
