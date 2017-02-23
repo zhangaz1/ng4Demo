@@ -6,11 +6,13 @@ import { HttpModule } from '@angular/http';
 import { HeroService } from './hero.service';
 
 import { AppComponent } from './app.component';
+import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from './hero-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeroesComponent,
     HeroDetailComponent,
   ],
   imports: [
