@@ -28,6 +28,15 @@ export class HeroService {
                 .then(() => hero)
                 .catch(errorHandler);
     }
+
+    delete(id: number): Promise<void> {
+        const url = `${this.heroesUrl}/${id}`;
+        return this.http
+                    .delete(url, { headers: this.headers })
+                    .toPromise()
+                    .then(() => null)
+                    .catch(errorHandler);
+    }
     
     getHero(id: number): Promise<Hero> {
         let findHeroById = heroes => heroes.find(hero => hero.id === id); 
