@@ -7,9 +7,19 @@ import { Hero }     from './hero';
 
 @Injectable()
 export class HeroService {
+    private headers = new Headers({ 'Content-Type': 'application/json'});
     private heroesUrl = 'app/heroes';
 
     constructor(private http: Http) { }
+
+    update(hero: Hero): Promise<Hero> {
+        const url = `${this.heroesUrl}/${hero.id}`;
+        return this.http
+                .put(url, JSON.stringify(hero), { headers: this.headers })
+                .toPromise()
+                .then(() => hero)
+                .catch(handleError);
+    }
     
     getHero(id: number): Promise<Hero> {
         let findHeroById = heroes => heroes.find(hero => hero.id === id); 
