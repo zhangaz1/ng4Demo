@@ -12,13 +12,21 @@ export class HeroService {
 
     constructor(private http: Http) { }
 
+    create(name: string): Promise<Hero> {
+        return this.http
+                .post(this.heroesUrl, JSON.stringify({ name: name }), { headers: this.headers})
+                .toPromise()
+                .then(pickDataInResponse)
+                .catch(errorHandler);
+    }
+
     update(hero: Hero): Promise<Hero> {
         const url = `${this.heroesUrl}/${hero.id}`;
         return this.http
                 .put(url, JSON.stringify(hero), { headers: this.headers })
                 .toPromise()
                 .then(() => hero)
-                .catch(handleError);
+                .catch(errorHandler);
     }
     
     getHero(id: number): Promise<Hero> {
@@ -33,7 +41,7 @@ export class HeroService {
                     .toPromise()
                     .then(pickDataInResponse)
                     .then(data => data as Hero[])
-                    .catch(handleError);
+                    .catch(errorHandler);
     }
 
     getHeroesSlowly(): Promise<Hero[]> {
@@ -46,7 +54,7 @@ function pickDataInResponse(response) {
     return response.json().data;
 }
 
-function handleError(error: any): Promise<any> {
+function errorHandler(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
 }
