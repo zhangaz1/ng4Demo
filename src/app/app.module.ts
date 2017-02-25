@@ -42,7 +42,16 @@ import { HeroFormComponent }    from './hero-form.component';
   ],
   providers: [
     UserService,
-    { provide: Logger, useClass: EventBetterLogger },
+    EventBetterLogger,
+    // { provide: Logger, useClass: EventBetterLogger }, // 两个eventBetterLogger实例
+    { provide: Logger, useExisting: EventBetterLogger }, // use 同一个EventBetterLogger实例
+    // { 
+    //   provide: Logger, 
+    //   useValue: {
+    //     logs: ['Silent logger says "Shhhhh!". Provided via "useValue"'],
+    //     log: () => {},
+    //   } 
+    // },
     HeroService,
   ],
   bootstrap: [AppComponent]
