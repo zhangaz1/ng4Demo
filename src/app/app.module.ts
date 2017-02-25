@@ -14,6 +14,7 @@ import { Logger }             from './logger.service';
 import { UserService }        from './user.service';
 import { EventBetterLogger }  from './event-better-logger.service';
 import { HeroService }        from './hero.service';
+import { heroServiceProvider }  from './hero.service.provider';
 
 import { AppComponent }         from './app.component';
 import { HeroesComponent }      from './heroes.component';
@@ -52,7 +53,8 @@ import { HeroFormComponent }    from './hero-form.component';
     //     log: () => {},
     //   } 
     // },
-    HeroService,
+    // HeroService,
+    heroServiceProvider,
   ],
   bootstrap: [AppComponent]
 })
