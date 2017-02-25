@@ -10,8 +10,10 @@ import { InMemoryDataService }    from './in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { Logger }           from './logger.service';
-import { HeroService }      from './hero.service';
+import { Logger }             from './logger.service';
+import { UserService }        from './user.service';
+import { EventBetterLogger }  from './event-better-logger.service';
+import { HeroService }        from './hero.service';
 
 import { AppComponent }         from './app.component';
 import { HeroesComponent }      from './heroes.component';
@@ -39,7 +41,8 @@ import { HeroFormComponent }    from './hero-form.component';
     AppRoutingModule,
   ],
   providers: [
-    { provide: Logger, useClass: Logger },
+    UserService,
+    { provide: Logger, useClass: EventBetterLogger },
     HeroService,
   ],
   bootstrap: [AppComponent]
