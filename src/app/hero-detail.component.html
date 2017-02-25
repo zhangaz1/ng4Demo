@@ -10,7 +10,9 @@
 
   <div>
     <label for="heroName">name:</label>
-    <input [(ngModel)]="hero.name" placeholder="name">
+    <input [(ngModel)]="hero.name" placeholder="name"
+      (keyup.enter)="save()"
+    />
   </div>
 
   <button (click)="goBack()">Back</button>

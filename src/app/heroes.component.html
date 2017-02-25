@@ -2,7 +2,7 @@
 
 <div>
   <label for="heroName">Hero name:</label>
-  <input #heroName />
+  <input #heroName (keyup.enter)="add(heroName.value); heroName.value=''" />
   <button (click)="add(heroName.value); heroName.value=''">Add</button>
 </div>
 
