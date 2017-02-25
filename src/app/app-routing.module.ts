@@ -5,6 +5,7 @@ import { HeroesComponent }      from './heroes.component';
 import { DashboardComponent }   from './dashboard.component';
 import { HeroDetailComponent }  from './hero-detail.component';
 import { KeyUpComponent }       from './key-up.component';
+import { HeroFormComponent }    from './hero-form.component';
 
 const routes: Routes = [
     {
@@ -23,6 +24,9 @@ const routes: Routes = [
     }, {
         path: 'keyup',
         component: KeyUpComponent,
+    }, {
+        path: 'hero-form',
+        component: HeroFormComponent,
     }
 ];
 
