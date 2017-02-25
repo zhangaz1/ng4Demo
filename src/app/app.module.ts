@@ -39,7 +39,7 @@ import { HeroFormComponent }    from './hero-form.component';
     AppRoutingModule,
   ],
   providers: [
-    Logger,
+    { provide: Logger, useClass: Logger },
     HeroService,
   ],
   bootstrap: [AppComponent]
