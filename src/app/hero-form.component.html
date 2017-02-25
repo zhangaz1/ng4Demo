@@ -16,7 +16,8 @@
         <div class="form-group">
             <label for="alterEgo">Alter Ego</label>
             <input type="text" class="form-control" id="alterEgo"
-                [(ngModel)]="model.alterEgo" name="alterEgo"
+                [ngModel]="model.alterEgo" name="alterEgo"
+                (ngModelChange)="model.name = $event"
             />
         </div>
 
