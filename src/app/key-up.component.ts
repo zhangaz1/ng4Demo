@@ -12,8 +12,8 @@ export class KeyUpComponent {
     values: string[] = [];
     keys: string[] = [];
 
-    onKeyUp(event: any): void {
-        this.values.push(event.target.value);
+    onKeyUp(event: KeyboardEvent): void {
+        this.values.push((<HTMLInputElement>event.target).value);
         this.keys.push(event.key);
     }
 }
