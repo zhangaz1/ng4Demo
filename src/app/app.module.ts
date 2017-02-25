@@ -17,6 +17,7 @@ import { HeroesComponent }      from './heroes.component';
 import { DashboardComponent }   from './dashboard.component';
 import { HeroDetailComponent }  from './hero-detail.component';
 import { HeroSearchComponent }  from './hero-search.component';
+import { KeyUpComponent }       from './key-up.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HeroSearchComponent }  from './hero-search.component';
     DashboardComponent,
     HeroDetailComponent,
     HeroSearchComponent,
+    KeyUpComponent,
   ],
   imports: [
     BrowserModule,
