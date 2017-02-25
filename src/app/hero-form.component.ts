@@ -6,6 +6,7 @@ import { Hero }     from './hero';
     moduleId: module.id,
     selector: 'hero-form',
     templateUrl: './hero-form.component.html',
+    styleUrls: [ './hero-form.component.css' ],
 })
 export class HeroFormComponent {
 
