@@ -29,7 +29,4 @@ export class HeroFormComponent {
         this.submitted = true;
     }
 
-    get diagnostic() {
-        return JSON.stringify(this.model);
-    }
 }
