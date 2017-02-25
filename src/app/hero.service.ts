@@ -3,6 +3,8 @@ import { Headers, Http }    from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
+import { Logger }   from './logger.service';
+
 import { Hero }     from './hero';
 
 @Injectable()
@@ -10,7 +12,7 @@ export class HeroService {
     private headers = new Headers({ 'Content-Type': 'application/json'});
     private heroesUrl = 'app/heroes';
 
-    constructor(private http: Http) { }
+    constructor(private logger: Logger, private http: Http) { }
 
     create(name: string): Promise<Hero> {
         return this.http

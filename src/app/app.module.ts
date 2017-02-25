@@ -10,6 +10,7 @@ import { InMemoryDataService }    from './in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { Logger }           from './logger.service';
 import { HeroService }      from './hero.service';
 
 import { AppComponent }         from './app.component';
@@ -38,6 +39,7 @@ import { HeroFormComponent }    from './hero-form.component';
     AppRoutingModule,
   ],
   providers: [
+    Logger,
     HeroService,
   ],
   bootstrap: [AppComponent]
