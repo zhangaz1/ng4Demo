@@ -33,4 +33,8 @@ export class HeroFormComponent {
     get diagnostic() {
         return JSON.stringify(this.model);
     }
+
+    newHero(): void {
+        this.model = new Hero(42, '', '');
+    }
 }

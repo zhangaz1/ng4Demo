@@ -4,7 +4,7 @@
 
     {{diagnostic}}
 
-    <form action="">
+    <form action="" #heroForm>
 
         <div class="form-group">
             <label for="name">Name</label>
@@ -35,6 +35,7 @@
             </select>
         </div>
 
+        <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset();">New Hero</button>
         <button type="submit" class="btn btn-default">Submit</button>
 
     </form>
