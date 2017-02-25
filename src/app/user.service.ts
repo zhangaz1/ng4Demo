@@ -4,5 +4,6 @@ import { Injectable }       from '@angular/core';
 export class UserService {
     public user = {
         name: 'admin',
+        isAuthorized: false,
     };
 }

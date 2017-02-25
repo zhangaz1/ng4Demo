@@ -5,7 +5,7 @@ import { UserService }  from './user.service';
 import { HeroService }  from './hero.service';
 
 let heroServiceFactory = (logger: Logger, userService: UserService, http: Http) => {
-    return new HeroService(logger, http);
+    return new HeroService(logger, http, userService.user.isAuthorized);
 };
 
 export let heroServiceProvider = {

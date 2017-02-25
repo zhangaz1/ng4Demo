@@ -12,7 +12,11 @@ export class HeroService {
     private headers = new Headers({ 'Content-Type': 'application/json'});
     private heroesUrl = 'app/heroes';
 
-    constructor(private logger: Logger, private http: Http) { }
+    constructor(
+            private logger: Logger, 
+            private http: Http, 
+            private isAuthorized: boolean
+        ) { }
 
     create(name: string): Promise<Hero> {
         this.logger.log(`create hero: ${name}`);
@@ -56,12 +60,19 @@ export class HeroService {
     }
 
     getHeroes(): Promise<Hero[]> {
-        this.logger.log(`get heroes`);
+        let auth = this.isAuthorized 
+                        ? 'authorized' 
+                        : 'unauthorized';
+
+        this.logger.log(`get heroes for ${auth} user.`);
+
+        let filterHeroes = heroes => heroes.filter(hero => this.isAuthorized || !hero.isSecret);
 
         return this.http.get(this.heroesUrl)
                     .toPromise()
                     .then(pickDataInResponse)
                     .then(data => data as Hero[])
+                    .then(filterHeroes)
                     .catch(errorHandler);
     }
 
