@@ -3,9 +3,10 @@ import { Component }    from '@angular/core';
 @Component({
     selector: 'key-up',
     template: `
-        <input (keyup)="onKeyUp($event)" />
+        <input #box (keyup)="onKeyUp($event)" />
+        <p>{{box.value}}</p>
         <p>{{values.join(' | ')}}</p>
-        <p>{{keys.join(' | ')}}</p>
+        <p>{{keys.join(' | ')}}</p>        
     `,
 })
 export class KeyUpComponent {
