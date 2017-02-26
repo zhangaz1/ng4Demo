@@ -11,9 +11,9 @@ import { InMemoryDataService }    from './in-memory-data.service';
 import { AppRoutingModule } from './app-routing.module';
 
 import { appConfigProvider }  from './app-config';
-import { Logger }             from './logger.service';
-import { UserService }        from './user.service';
-import { EventBetterLogger }  from './event-better-logger.service';
+
+import { CoreModule }   from './core/core.module';
+
 import { HeroService }        from './hero/hero.service';
 import { heroServiceProvider }  from './hero/hero.service.provider';
 
@@ -35,22 +35,12 @@ import { SizerComponent }       from './sizer.component';
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule,
+    CoreModule,
     HeroModule,
   ],
   providers: [
     // appConfigProvider,
-    UserService,
-    EventBetterLogger,
-    // { provide: Logger, useClass: EventBetterLogger }, // 两个eventBetterLogger实例
-    { provide: Logger, useExisting: EventBetterLogger }, // use 同一个EventBetterLogger实例
-    // { 
-    //   provide: Logger, 
-    //   useValue: {
-    //     logs: ['Silent logger says "Shhhhh!". Provided via "useValue"'],
-    //     log: () => {},
-    //   } 
-    // },
-    // HeroService,
+
     heroServiceProvider,
   ],
   bootstrap: [AppComponent]
