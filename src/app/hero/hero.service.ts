@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 
 import { Logger }   from './../core/logger.service';
 
-import { Hero }     from './hero';
+import { Hero }         from './../models/hero';
 
 @Injectable()
 export class HeroService {
