@@ -24,6 +24,7 @@ import { HeroDetailComponent }  from './hero-detail.component';
 import { HeroSearchComponent }  from './hero-search.component';
 import { KeyUpComponent }       from './key-up.component';
 import { HeroFormComponent }    from './hero-form.component';
+import { SizerComponent }       from './sizer.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HeroFormComponent }    from './hero-form.component';
     HeroSearchComponent,
     KeyUpComponent,
     HeroFormComponent,
+    SizerComponent,
   ],
   imports: [
     BrowserModule,

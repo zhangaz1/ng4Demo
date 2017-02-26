@@ -7,4 +7,7 @@
     <a routerLink="/hero-form" routerLinkActive="active">Hero Form</a>
 </nav>
 
-<router-outlet></router-outlet>
+<router-outlet ></router-outlet>
+
+<my-sizer [(size)]="fontSizePx"></my-sizer>
+<div [style.font-size.px]="fontSizePx">text xx</div>
