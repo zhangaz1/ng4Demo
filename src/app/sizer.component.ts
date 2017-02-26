@@ -10,8 +10,8 @@ import { Component, EventEmitter } from '@angular/core';
             <button (click)="inc()" title="bigger">+</button>
         </div>
     `,
-    inputs: ['size'],
-    outputs: ['sizeChange'],
+    inputs: ['size:mySize'],
+    outputs: ['sizeChange:mySizeChange'],
 })
 export class SizerComponent {
     size: number | string;

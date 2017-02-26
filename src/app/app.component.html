@@ -9,5 +9,5 @@
 
 <router-outlet ></router-outlet>
 
-<my-sizer [size]="fontSizePx" (sizeChange)="fontSizePx=$event"></my-sizer>
+<my-sizer [(mySize)]="fontSizePx"></my-sizer>
 <div [style.font-size.px]="fontSizePx">text xx</div>
