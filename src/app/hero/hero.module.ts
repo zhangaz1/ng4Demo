@@ -15,7 +15,7 @@ import { HeroFormComponent }    from './form/hero-form.component';
 
 @NgModule({
     imports: [
-        CoreModule,
+        // CoreModule,
         SharedModule,
         InMemoryWebApiModule.forRoot(InMemoryDataService),
     ],
