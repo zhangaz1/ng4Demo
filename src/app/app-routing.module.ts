@@ -1,10 +1,10 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HeroesComponent }      from './hero/list/hero-list.component';
-import { DashboardComponent }   from './hero/dashboard/dashboard.component';
-import { HeroDetailComponent }  from './hero/detail/hero-detail.component';
-import { HeroFormComponent }    from './hero/form/hero-form.component';
+import { HeroesComponent }      from './modules/hero/list/hero-list.component';
+import { DashboardComponent }   from './modules/hero/dashboard/dashboard.component';
+import { HeroDetailComponent }  from './modules/hero/detail/hero-detail.component';
+import { HeroFormComponent }    from './modules/hero/form/hero-form.component';
 import { KeyUpComponent }       from './key-up.component';
 
 const routes: Routes = [

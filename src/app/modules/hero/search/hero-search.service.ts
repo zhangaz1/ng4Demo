@@ -3,7 +3,7 @@ import { Http, Response }   from '@angular/http';
 
 import { Observable }       from 'rxjs';
 
-import { Hero }         from './../../models/hero';
+import { Hero }         from './../../../models/hero';
 
 @Injectable()
 export class HeroSearchService {

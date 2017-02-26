@@ -4,7 +4,7 @@ import { Location }                 from '@angular/common';
 
 import 'rxjs/add/operator/switchMap';
 
-import { Hero }         from './../../models/hero';
+import { Hero }         from './../../../models/hero';
 
 import { HeroService }  from './../hero.service';
 

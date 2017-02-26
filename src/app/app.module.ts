@@ -8,10 +8,10 @@ import { appConfigProvider }  from './app-config';
 
 import { CoreModule }   from './core/core.module';
 
-import { HeroService }        from './hero/hero.service';
-import { heroServiceProvider }  from './hero/hero.service.provider';
+import { HeroService }        from './modules/hero/hero.service';
+import { heroServiceProvider }  from './modules/hero/hero.service.provider';
 
-import { HeroModule }   from './hero/hero.module';
+import { HeroModule }   from './modules/hero/hero.module';
 
 import { AppComponent }         from './component/app.component';
 import { KeyUpComponent }       from './key-up.component';

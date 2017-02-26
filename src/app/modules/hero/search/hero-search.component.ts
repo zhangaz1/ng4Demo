@@ -4,7 +4,7 @@ import { Router }               from '@angular/router';
 import { Observable }   from 'rxjs/Observable';
 import { Subject }      from 'rxjs/Subject';
 
-import { Hero }         from './../../models/hero';
+import { Hero }         from './../../../models/hero';
 import { HeroSearchService }    from './hero-search.service';
 
 @Component({

@@ -1,9 +1,9 @@
 import { NgModule }     from '@angular/core';
 
-import { SharedModule }     from './../shared/shared.module';
+import { SharedModule }     from './../../shared/shared.module';
 
 import { InMemoryWebApiModule }   from 'angular-in-memory-web-api';
-import { InMemoryDataService }    from './../core/in-memory-data.service';
+import { InMemoryDataService }    from './../../core/in-memory-data.service';
 
 import { HeroesComponent }      from './list/hero-list.component';
 import { DashboardComponent }   from './dashboard/dashboard.component';
