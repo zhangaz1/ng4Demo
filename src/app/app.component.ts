@@ -19,6 +19,6 @@ export class AppComponent implements OnInit {
     if(this.config){
       this.title = this.config.title;
     }
-    console.log('title2:', this.injector.get(APP_CONFIG).title);    
+    console.log('title2:', this.injector.get(APP_CONFIG, { title: 'temp' }).title);    
   }
 }
