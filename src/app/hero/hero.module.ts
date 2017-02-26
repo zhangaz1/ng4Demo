@@ -7,7 +7,7 @@ import { InMemoryWebApiModule }   from 'angular-in-memory-web-api';
 import { InMemoryDataService }    from './../core/in-memory-data.service';
 
 import { HeroesComponent }      from './heroes.component';
-import { DashboardComponent }   from './dashboard.component';
+import { DashboardComponent }   from './dashboard/dashboard.component';
 import { HeroDetailComponent }  from './hero-detail.component';
 import { HeroSearchComponent }  from './hero-search.component';
 import { HeroFormComponent }    from './hero-form.component';
