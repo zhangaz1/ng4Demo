@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Optional } from '@angular/core';
 
 import { APP_CONFIG, AppConfig }     from './app-config';
 
@@ -11,10 +11,12 @@ export class AppComponent implements OnInit {
   title = 'Tour of Heroes';
 
   constructor(
-    @Inject(APP_CONFIG) private config: AppConfig
+    @Inject(APP_CONFIG) @Optional() private config: AppConfig
   ) { }
 
   ngOnInit(): void {
-    this.title = this.config.title;
+    if(this.config){
+      this.title = this.config.title;
+    }
   }
 }
