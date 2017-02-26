@@ -43,7 +43,7 @@ import { HeroFormComponent }    from './hero-form.component';
     AppRoutingModule,
   ],
   providers: [
-    // appConfigProvider,
+    appConfigProvider,
     UserService,
     EventBetterLogger,
     // { provide: Logger, useClass: EventBetterLogger }, // 两个eventBetterLogger实例
