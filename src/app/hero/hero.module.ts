@@ -1,6 +1,5 @@
 import { NgModule }     from '@angular/core';
 
-import { CoreModule }       from './../core/core.module';
 import { SharedModule }     from './../shared/shared.module';
 
 import { InMemoryWebApiModule }   from 'angular-in-memory-web-api';
@@ -15,7 +14,6 @@ import { HeroFormComponent }    from './form/hero-form.component';
 
 @NgModule({
     imports: [
-        // CoreModule,
         SharedModule,
         InMemoryWebApiModule.forRoot(InMemoryDataService),
     ],
