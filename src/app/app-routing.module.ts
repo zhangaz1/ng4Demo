@@ -5,7 +5,7 @@ import { HeroesComponent }      from './modules/hero/list/hero-list.component';
 import { DashboardComponent }   from './modules/hero/dashboard/dashboard.component';
 import { HeroDetailComponent }  from './modules/hero/detail/hero-detail.component';
 import { HeroFormComponent }    from './modules/hero/form/hero-form.component';
-import { KeyUpComponent }       from './key-up.component';
+import { KeyUpComponent }       from './shared/components/key-up.component';
 
 const routes: Routes = [
     {
