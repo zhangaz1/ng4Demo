@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
     moduleId: module.id,
@@ -10,11 +10,14 @@ import { Component, EventEmitter } from '@angular/core';
             <button (click)="inc()" title="bigger">+</button>
         </div>
     `,
-    inputs: ['size:mySize'],
-    outputs: ['sizeChange:mySizeChange'],
+    // inputs: ['size:mySize'],
+    // outputs: ['sizeChange:mySizeChange'],
 })
 export class SizerComponent {
+    @Input('mySize') 
     size: number | string;
+    
+    @Output('mySizeChange') 
     sizeChange = new EventEmitter<number>();
 
     dec() {
