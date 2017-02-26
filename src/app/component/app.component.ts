@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, Optional, Injector } from '@angular/core';
 
-import { APP_CONFIG, AppConfig }     from './app-config';
+import { APP_CONFIG, AppConfig }     from './../app-config';
 
 @Component({
   selector: 'my-app',

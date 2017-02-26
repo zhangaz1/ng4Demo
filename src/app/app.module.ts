@@ -13,7 +13,7 @@ import { heroServiceProvider }  from './hero/hero.service.provider';
 
 import { HeroModule }   from './hero/hero.module';
 
-import { AppComponent }         from './app.component';
+import { AppComponent }         from './component/app.component';
 import { KeyUpComponent }       from './key-up.component';
 import { SizerComponent }       from './sizer.component';
 
