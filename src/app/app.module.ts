@@ -19,7 +19,7 @@ import { heroServiceProvider }  from './hero/hero.service.provider';
 
 import { AppComponent }         from './app.component';
 import { HeroesComponent }      from './hero/heroes.component';
-import { DashboardComponent }   from './dashboard.component';
+import { DashboardComponent }   from './hero/dashboard.component';
 import { HeroDetailComponent }  from './hero/hero-detail.component';
 import { HeroSearchComponent }  from './hero/hero-search.component';
 import { KeyUpComponent }       from './key-up.component';

@@ -2,7 +2,7 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HeroesComponent }      from './hero/heroes.component';
-import { DashboardComponent }   from './dashboard.component';
+import { DashboardComponent }   from './hero/dashboard.component';
 import { HeroDetailComponent }  from './hero/hero-detail.component';
 import { KeyUpComponent }       from './key-up.component';
 import { HeroFormComponent }    from './hero/hero-form.component';
