@@ -17,24 +17,16 @@ import { EventBetterLogger }  from './event-better-logger.service';
 import { HeroService }        from './hero/hero.service';
 import { heroServiceProvider }  from './hero/hero.service.provider';
 
+import { HeroModule }   from './hero/hero.module';
+
 import { AppComponent }         from './app.component';
-import { HeroesComponent }      from './hero/heroes.component';
-import { DashboardComponent }   from './hero/dashboard.component';
-import { HeroDetailComponent }  from './hero/hero-detail.component';
-import { HeroSearchComponent }  from './hero/hero-search.component';
 import { KeyUpComponent }       from './key-up.component';
-import { HeroFormComponent }    from './hero/hero-form.component';
 import { SizerComponent }       from './sizer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent,
-    DashboardComponent,
-    HeroDetailComponent,
-    HeroSearchComponent,
     KeyUpComponent,
-    HeroFormComponent,
     SizerComponent,
   ],
   imports: [
@@ -43,6 +35,7 @@ import { SizerComponent }       from './sizer.component';
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule,
+    HeroModule,
   ],
   providers: [
     // appConfigProvider,
