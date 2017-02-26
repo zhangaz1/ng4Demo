@@ -1,9 +1,11 @@
-import { NgModule }     from '@angular/core';
+import { NgModule, Optional, SkipSelf }     from '@angular/core';
 
 
 import { Logger }             from './logger.service';
 import { UserService }        from './user.service';
 import { EventBetterLogger }  from './event-better-logger.service';
+
+import { throwIfAlreadyLoaded }     from './module-import-guard';
 
 @NgModule({
     imports: [],
@@ -24,4 +26,14 @@ import { EventBetterLogger }  from './event-better-logger.service';
         // HeroService,
     ]
 })
-export class CoreModule { }
+export class CoreModule {
+
+    constructor(
+        @Optional()
+        @SkipSelf()
+        parentModule: CoreModule
+    ) {
+        throwIfAlreadyLoaded(parentModule, 'CoreModule');
+    }
+
+ }
