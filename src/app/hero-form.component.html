@@ -4,6 +4,8 @@
 
     {{model | json}}
 
+    {{ model.name?.length }}
+
     <form (ngSubmit)="onSubmit(heroForm)" #heroForm="ngForm">
 
         <div class="form-group">
