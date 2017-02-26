@@ -26,8 +26,10 @@ export class HeroFormComponent {
 
     submitted = false;
 
-    onSubmit() {
-        this.submitted = true;
+    onSubmit(ngForm) {
+        if(ngForm.form.valid){
+            this.submitted = true;
+        }
     }
 
     get diagnostic() {
