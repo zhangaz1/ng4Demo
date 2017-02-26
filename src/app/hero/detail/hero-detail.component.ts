@@ -4,9 +4,9 @@ import { Location }                 from '@angular/common';
 
 import 'rxjs/add/operator/switchMap';
 
-import { Hero }         from './../models/hero';
+import { Hero }         from './../../models/hero';
 
-import { HeroService }  from './hero.service';
+import { HeroService }  from './../hero.service';
 
 @Component({
     moduleId: module.id,

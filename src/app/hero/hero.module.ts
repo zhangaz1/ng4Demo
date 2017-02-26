@@ -8,7 +8,7 @@ import { InMemoryDataService }    from './../core/in-memory-data.service';
 
 import { HeroesComponent }      from './heroes.component';
 import { DashboardComponent }   from './dashboard/dashboard.component';
-import { HeroDetailComponent }  from './hero-detail.component';
+import { HeroDetailComponent }  from './detail/hero-detail.component';
 import { HeroSearchComponent }  from './hero-search.component';
 import { HeroFormComponent }    from './hero-form.component';
 
