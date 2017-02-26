@@ -24,12 +24,6 @@ import { HeroFormComponent }    from './hero-form.component';
         HeroSearchComponent,
         HeroFormComponent,
     ],
-    exports: [
-        HeroesComponent,
-        DashboardComponent,
-        HeroDetailComponent,
-        HeroSearchComponent,
-        HeroFormComponent,
-    ],
+    exports: [],
 })
 export class HeroModule { }
