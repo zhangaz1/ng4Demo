@@ -26,6 +26,10 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
+  trackByHeroes(index: number, hero: Hero) {
+    return hero.id;
+  }
+
   add(name: string): void {
     name = name.trim();
     if(!name) {
@@ -35,7 +39,7 @@ export class HeroesComponent implements OnInit {
     this.heroService
         .create(name)
         .then(hero => {
-          this.heroes.push(hero);
+          this.getHeroes();// this.heroes.push(hero);
           this.selectedHero = null;
         });
   }
