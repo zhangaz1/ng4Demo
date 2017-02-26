@@ -14,16 +14,16 @@ import { appConfigProvider }  from './app-config';
 import { Logger }             from './logger.service';
 import { UserService }        from './user.service';
 import { EventBetterLogger }  from './event-better-logger.service';
-import { HeroService }        from './hero.service';
-import { heroServiceProvider }  from './hero.service.provider';
+import { HeroService }        from './hero/hero.service';
+import { heroServiceProvider }  from './hero/hero.service.provider';
 
 import { AppComponent }         from './app.component';
-import { HeroesComponent }      from './heroes.component';
+import { HeroesComponent }      from './hero/heroes.component';
 import { DashboardComponent }   from './dashboard.component';
-import { HeroDetailComponent }  from './hero-detail.component';
-import { HeroSearchComponent }  from './hero-search.component';
+import { HeroDetailComponent }  from './hero/hero-detail.component';
+import { HeroSearchComponent }  from './hero/hero-search.component';
 import { KeyUpComponent }       from './key-up.component';
-import { HeroFormComponent }    from './hero-form.component';
+import { HeroFormComponent }    from './hero/hero-form.component';
 import { SizerComponent }       from './sizer.component';
 
 @NgModule({
