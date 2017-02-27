@@ -13,7 +13,7 @@ import { AppComponent }         from './component/app.component';
 import { HighlightDirective }   from './highlight.directive';
 import { TitleComponent }       from './title.component';
 
-import { ContactModule }   from './contact/contact.module';
+import { ContactModule }   from './modules/contact/contact.module';
 
 @NgModule({
   declarations: [
