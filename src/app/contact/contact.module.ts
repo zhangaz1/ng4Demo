@@ -7,10 +7,13 @@ import { ContactComponent }     from './contact.component';
 import { ContactService }       from './contact.service';
 import { HighlightDirective }   from './highlight.directive';
 
+import { ContactRoutingModule }     from './contact-routing.module';
+
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
+        ContactRoutingModule,
     ],
     declarations: [
         ContactComponent,
@@ -18,7 +21,6 @@ import { HighlightDirective }   from './highlight.directive';
         AwesomePipe,
     ],
     exports: [
-        ContactComponent,
         AwesomePipe,
     ],
     providers: [ ContactService ],

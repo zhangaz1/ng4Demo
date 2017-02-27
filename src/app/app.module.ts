@@ -8,6 +8,8 @@ import { TitleComponent }       from './title.component';
 
 import { ContactModule }   from './contact/contact.module';
 
+import { AppRoutingModule }   from './app-routing.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +19,7 @@ import { ContactModule }   from './contact/contact.module';
   imports: [
     BrowserModule,
     ContactModule,
+    AppRoutingModule,
   ],
   providers: [
     UserService,
