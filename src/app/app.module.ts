@@ -9,6 +9,8 @@ import { HighlightDirective }   from './highlight.directive';
 import { TitleComponent }       from './title.component';
 import { ContactComponent }     from './contact/contact.component';
 import { AwesomePipe }          from './contact/awesome.pipe';
+import { ContactService }       from './contact/contact.service';
+import { HighlightDirective as ContactHighlightDirective } from './contact/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { AwesomePipe }          from './contact/awesome.pipe';
     TitleComponent,
     ContactComponent,
     AwesomePipe,
+    ContactHighlightDirective,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,7 @@ import { AwesomePipe }          from './contact/awesome.pipe';
   ],
   providers: [
     UserService,
+    ContactService,
   ],
   bootstrap: [AppComponent]
 })
