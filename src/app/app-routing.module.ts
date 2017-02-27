@@ -11,7 +11,7 @@ export const routes: Routes = [
     },
     // { path: 'contact'},
     { path: 'crisis', loadChildren: 'app/crisis/crisis.module#CrisisModule' },
-    { path: 'heroes', loadChildren: 'app/hero/hero.module#HeroModule' },
+    // { path: 'heroes', loadChildren: 'app/modules/hero/hero.module#HeroModule' },
 ];
 
 @NgModule({

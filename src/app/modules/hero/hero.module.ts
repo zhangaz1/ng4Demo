@@ -3,6 +3,8 @@ import { NgModule }     from '@angular/core';
 import { CoreModule }     from './../../core/core.module';
 import { SharedModule }     from './../../shared/shared.module';
 
+import { HeroRoutingModule } from './hero.routing.module';
+
 import { InMemoryWebApiModule }   from 'angular-in-memory-web-api';
 import { InMemoryDataService }    from './../../core/in-memory-data.service';
 
@@ -15,12 +17,12 @@ import { HeroDetailComponent }  from './detail/hero-detail.component';
 import { HeroSearchComponent }  from './search/hero-search.component';
 import { HeroFormComponent }    from './form/hero-form.component';
 
-
 @NgModule({
     imports: [
         CoreModule,
         SharedModule,
         InMemoryWebApiModule.forRoot(InMemoryDataService),
+        HeroRoutingModule,
     ],
     declarations: [
         HeroesComponent,
@@ -29,7 +31,9 @@ import { HeroFormComponent }    from './form/hero-form.component';
         HeroSearchComponent,
         HeroFormComponent,
     ],
-    exports: [],
+    exports: [
+        HeroesComponent,
+    ],
     providers: [
         heroServiceProvider,
     ]
