@@ -6,4 +6,5 @@ export class UserService {
         name: 'admin',
         isAuthorized: false,
     };
+    userName = 'Sherlock Holmes';
 }

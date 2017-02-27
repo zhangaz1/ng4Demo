@@ -10,6 +10,7 @@ import { APP_CONFIG, AppConfig }     from './../app-config';
 export class AppComponent implements OnInit {  
   fontSizePx: number;
   title = 'Tour of Heroes';
+  subtitle = '(v1)';
   
   constructor(
     @Inject(APP_CONFIG) @Optional() private config: AppConfig,
