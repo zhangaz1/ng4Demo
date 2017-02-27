@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
 import { UserService }          from './user.service';
 import { AppComponent }         from './app.component';
@@ -18,8 +16,6 @@ import { ContactModule }   from './contact/contact.module';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
     ContactModule,
   ],
   providers: [
