@@ -8,6 +8,7 @@ import { AppComponent }         from './app.component';
 import { HighlightDirective }   from './highlight.directive';
 import { TitleComponent }       from './title.component';
 import { ContactComponent }     from './contact/contact.component';
+import { AwesomePipe }          from './contact/awesome.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ContactComponent }     from './contact/contact.component';
     HighlightDirective,
     TitleComponent,
     ContactComponent,
-],
+    AwesomePipe,
+  ],
   imports: [
     BrowserModule,
     FormsModule,
