@@ -25,6 +25,6 @@ import { ContactModule }   from './contact/contact.module';
   providers: [
     UserService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
