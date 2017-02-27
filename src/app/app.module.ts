@@ -30,6 +30,6 @@ import { ContactModule }   from './modules/contact/contact.module';
   ],
   providers: [
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
 })
 export class AppModule { }

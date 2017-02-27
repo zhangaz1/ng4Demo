@@ -25,5 +25,6 @@ import { ContactRoutingModule }     from './contact-routing.module';
         AwesomePipe,
     ],
     providers: [ ContactService ],
+    // bootstrap: [ ContactComponent ],
 })
 export class ContactModule {}
