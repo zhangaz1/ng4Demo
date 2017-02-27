@@ -1,20 +1,30 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { NgModule }       from '@angular/core';
 
-import { AppComponent } from './app.component';
+import './rxjs-extensions';
+
+import { AppRoutingModule }   from './app-routing.module';
+import { appConfigProvider }  from './app-config';
+
+import { CoreModule }     from './core/core.module';
+import { SharedModule }   from './shared/shared.module';
+
+import { HeroModule }   from './modules/hero/hero.module';
+
+import { AppComponent }         from './component/app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule
+    AppRoutingModule,
+    CoreModule,
+    SharedModule,
+    HeroModule,
   ],
-  providers: [],
+  providers: [
+    // appConfigProvider,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
