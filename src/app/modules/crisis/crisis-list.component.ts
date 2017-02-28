@@ -53,4 +53,11 @@ export class CrisisListComponent implements OnInit {
     ngOnInit() { 
         this.crises = this.crisisService.getCrises();
     }
+
+    animationStarted(event) {
+        console.log('animationStart:', event);
+    }
+    animationEnd(event) {
+        console.log('animationEnd:', event);
+    }
 }

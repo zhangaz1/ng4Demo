@@ -1,6 +1,8 @@
 <h3 highlight>Crisis List</h3>
 
 <div *ngFor="let crisis of crises | async" 
+    (@crisisState.start)="animationStarted($event)"
+    (@crisisState.done)="animationEnd($event)"
     [@crisisState]="crisis.state"
     (contextmenu)="crisis.toggleState($event)"
     routerLink="{{ '../' + crisis.id }}"
