@@ -14,24 +14,43 @@ import { CrisisService }     from './crisis.service';
     templateUrl: './crisis-list.component.html',
     animations: [
         trigger('crisisState', [
-          transition('void => *', [
-            style({
-                position: 'relative',
-                left: -50,
-                backgroundColor: 'red',
-                color: 'yellow',
-                transform: 'scale(1)',
-              }),
-            animate(
-                  '1000ms ease-out',
-                  style({
+            transition(':enter', [
+                style({
+                    position: 'relative',
+                    left: -50,
+                    backgroundColor: 'red',
+                    color: 'yellow',
+                    transform: 'scale(1)',
+                }),
+                animate(
+                    '1000ms ease-out',
+                    style({
+                        position: 'relative',
+                        left: 0,
+                        backgroundColor: 'green',
+                        color: 'red',
+                        transform: 'scale(1.1)',
+                    })
+                ),
+            ]),
+            transition(':leave', [
+                style({
                     position: 'relative',
                     left: 0,
-                    backgroundColor: 'green',
-                    color: 'red',
-                    transform: 'scale(1.1)',
-                  })
-              )
+                    backgroundColor: 'red',
+                    color: 'yellow',
+                    transform: 'scale(1)',
+                }),
+                animate(
+                    '1000ms ease-out',
+                    style({
+                        position: 'relative',
+                        left: 100,
+                        backgroundColor: 'green',
+                        color: 'red',
+                        transform: 'scale(1.1)',
+                    })
+                ),
             ]),
         ])
     ],
