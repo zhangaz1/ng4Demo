@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 
 import { SharedModule }     from './../../shared/shared.module';
 
+import { CrisisService }     from './crisis.service';
+
 import { CrisisRoutingModule } from './crisis-routing.module';
 import { CrisisListComponent } from './crisis-list.component';
 
@@ -12,6 +14,8 @@ import { CrisisListComponent } from './crisis-list.component';
     ],
     exports: [],
     declarations: [CrisisListComponent],
-    providers: [],
+    providers: [
+        CrisisService,
+    ],
 })
 export class CrisisModule { }

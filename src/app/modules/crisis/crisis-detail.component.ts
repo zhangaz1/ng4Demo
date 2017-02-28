@@ -5,16 +5,15 @@ import { CrisisService }     from './crisis.service';
 
 @Component({
     moduleId: module.id,
-    templateUrl: './crisis-list.component.html'
+    templateUrl: './crisis-detail.component.html'
 })
-export class CrisisListComponent implements OnInit {
-    crises: Promise<Crisis[]>;
+export class CrisisDetailComponent implements OnInit {
     
     constructor(
         private crisisService: CrisisService
     ) { }
 
     ngOnInit() { 
-        this.crises = this.crisisService.getCrises();
+        
     }
 }
