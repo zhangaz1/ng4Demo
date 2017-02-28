@@ -9,6 +9,7 @@
 <ul class="heroes">
   <li *ngFor="let hero of heroes; trackBy:trackByHeroes" 
       [class.selected]="hero === selectedHero"
+      [@heroState]="hero.state"
       (click)="onSelect(hero)">
     <span class="badge">{{hero.id}}</span>
     <span class="text">{{hero.name}}</span>
