@@ -7,7 +7,7 @@ export class HighlightDirective {
     private oldColor: string;
 
     @Input()
-    myHighlight: string = 'yellow';
+    highlight: string;
 
     constructor(private el: ElementRef) {
         // el.nativeElement.style.backgroundColor = 'gold';
@@ -17,16 +17,16 @@ export class HighlightDirective {
     @HostListener('mouseenter')
     onMouseEnter() {
         this.oldColor = this.getBackgroundColor();
-        this.highlight(this.myHighlight);
+        this.setBackgroundColor(this.highlight);
     }
 
     @HostListener('mouseleave')
     onMouseLeave() {
-        this.highlight(this.oldColor);
+        this.setBackgroundColor(this.oldColor);
     }
 
 
-    private highlight(color: string) {
+    private setBackgroundColor(color: string) {
         this.el.nativeElement.style.backgroundColor = color;
     }
 
