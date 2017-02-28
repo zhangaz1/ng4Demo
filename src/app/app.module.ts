@@ -11,7 +11,6 @@ import { SharedModule }   from './shared/shared.module';
 import { HeroModule }   from './modules/hero/hero.module';
 import { AppComponent }         from './component/app.component';
 import { HighlightDirective }   from './highlight.directive';
-import { TitleComponent }       from './title.component';
 
 import { ContactModule }   from './modules/contact/contact.module';
 
@@ -19,7 +18,6 @@ import { ContactModule }   from './modules/contact/contact.module';
   declarations: [
     AppComponent,
     HighlightDirective,
-    TitleComponent,
   ],
   imports: [
     AppRoutingModule,

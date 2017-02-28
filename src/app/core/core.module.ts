@@ -1,17 +1,27 @@
 import { ModuleWithProviders, NgModule,
         Optional, SkipSelf,  }     from '@angular/core';
 
+import { CommonModule }     from '@angular/common';
 
 import { Logger }             from './logger.service';
 import { UserService, UserServiceConfig }        from './user.service';
 import { EventBetterLogger }  from './event-better-logger.service';
 
+import { TitleComponent }       from './title.component';
+
 import { throwIfAlreadyLoaded }     from './module-import-guard';
 
+
 @NgModule({
-    imports: [],
-    declarations: [],
-    exports: [],
+    imports: [
+        CommonModule,
+    ],
+    declarations: [
+        TitleComponent,        
+    ],
+    exports: [
+        TitleComponent,        
+    ],
     providers: [
         UserService,
         EventBetterLogger,
