@@ -16,13 +16,17 @@ import { CrisisService }     from './crisis.service';
         trigger('crisisState', [
           transition('void => *', [
             style({
+                position: 'relative',
+                left: -50,
                 backgroundColor: 'red',
                 color: 'yellow',
                 transform: 'scale(1)',
               }),
             animate(
-                  '500ms ease-out',
+                  '1000ms ease-out',
                   style({
+                    position: 'relative',
+                    left: 0,
                     backgroundColor: 'green',
                     color: 'red',
                     transform: 'scale(1.1)',
