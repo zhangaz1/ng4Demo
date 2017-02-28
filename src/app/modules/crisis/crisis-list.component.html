@@ -1,5 +1,5 @@
 <h3 highlight>Crisis List</h3>
-<h3 highlight style="background-color: green">Crisis List2</h3>
+<h3 highlight [myHighlight]="'red'" style="background-color: green">Crisis List2</h3>
 
 <div *ngFor="let crisis of crises | async" 
     (@crisisState.start)="animationStarted($event)"
