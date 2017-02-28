@@ -45,6 +45,8 @@ import { CrisisService }     from './crisis.service';
 })
 export class CrisisListComponent implements OnInit {
     crises: Promise<Crisis[]>;
+
+    highLightColor = 'gray';
     
     constructor(
         private crisisService: CrisisService
