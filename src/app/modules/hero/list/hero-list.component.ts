@@ -28,7 +28,7 @@ import { HeroService }        from './../hero.service';
       })),
       transition('inactive => active', animate('100ms ease-in')),
       transition('active => inactive', animate('100ms ease-out')),
-    ])
+    ]),
   ],
 })
 export class HeroesComponent implements OnInit {
