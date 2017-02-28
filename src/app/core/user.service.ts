@@ -1,22 +1,32 @@
 import { Injectable, Optional }       from '@angular/core';
 
+let nextId = 1;
+
 export class UserServiceConfig {
   userName = 'Philip Marlowe';
 }
 
 @Injectable()
 export class UserService {
-    public user = {
+    id = nextId++;
+    user = {
         name: 'admin',
         isAuthorized: false,
     };
-    userName = 'Sherlock Holmes';
+    private _userName = 'Sherlock Holmes';
 
     constructor(
         @Optional() config: UserServiceConfig
     ) {
         if(config) {
-            this.userName = config.userName;
+            this._userName = config.userName;
         }
+    }
+
+    get userName() {
+        const suffix = this.id > 1 
+                        ? `times ${this.id}`
+                        : '';
+        return this._userName + suffix;
     }
 }
