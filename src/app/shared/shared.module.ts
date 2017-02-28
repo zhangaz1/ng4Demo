@@ -8,11 +8,14 @@ import { HttpModule }       from '@angular/http';
 import { KeyUpComponent }       from './components/key-up.component';
 import { SizerComponent }       from './components/sizer.component';
 
+import { HighlightDirective }   from './highlight.directive';
+
 @NgModule({
     imports: [],
     declarations: [
         KeyUpComponent,
         SizerComponent,
+        HighlightDirective,
     ],
     exports: [
         BrowserModule,
@@ -21,6 +24,7 @@ import { SizerComponent }       from './components/sizer.component';
         HttpModule,
         KeyUpComponent,        
         SizerComponent,
+        HighlightDirective,
     ],
 })
 export class SharedModule { }

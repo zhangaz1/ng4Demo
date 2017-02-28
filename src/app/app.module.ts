@@ -10,14 +10,12 @@ import { SharedModule }   from './shared/shared.module';
 
 import { HeroModule }   from './modules/hero/hero.module';
 import { AppComponent }         from './component/app.component';
-import { HighlightDirective }   from './highlight.directive';
 
 import { ContactModule }   from './modules/contact/contact.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HighlightDirective,
   ],
   imports: [
     AppRoutingModule,
