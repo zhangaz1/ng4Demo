@@ -14,18 +14,22 @@ import { CrisisService }     from './crisis.service';
     templateUrl: './crisis-list.component.html',
     animations: [
         trigger('crisisState', [
-          state('inactive', style({
-            backgroundColor: 'red',
-            color: 'yellow',
-            transform: 'scale(1)',
-          })),
-          state('active', style({
-            backgroundColor: 'green',
-            color: 'red',
-            transform: 'scale(1.1)',
-          })),
-          transition('inactive <=> active', animate('500ms ease-out')),
-        ]),
+          transition('inactive <=> active', [
+            style({
+                backgroundColor: 'red',
+                color: 'yellow',
+                transform: 'scale(1)',
+              }),
+            animate(
+                  '500ms ease-out',
+                  style({
+                    backgroundColor: 'green',
+                    color: 'red',
+                    transform: 'scale(1.1)',
+                  })
+              )
+            ]),
+        ])
     ],
 })
 export class CrisisListComponent implements OnInit {
