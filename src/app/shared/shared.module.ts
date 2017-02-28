@@ -1,6 +1,6 @@
 import { NgModule }     from '@angular/core';
 
-import { BrowserModule }    from '@angular/platform-browser';
+import { CommonModule }     from '@angular/common';
 import { FormsModule }      from '@angular/forms';
 import { RouterModule }     from '@angular/router';
 import { HttpModule }       from '@angular/http';
@@ -20,7 +20,7 @@ import { HighlightDirective }   from './highlight.directive';
         HighlightDirective,
     ],
     exports: [
-        BrowserModule,
+        CommonModule,
         FormsModule,
         RouterModule,
         HttpModule,

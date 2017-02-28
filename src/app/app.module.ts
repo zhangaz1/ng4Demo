@@ -1,4 +1,5 @@
 import { NgModule }       from '@angular/core';
+import { BrowserModule }    from '@angular/platform-browser';
 
 import './rxjs-extensions';
 
@@ -18,6 +19,7 @@ import { ContactModule }   from './modules/contact/contact.module';
     AppComponent,
   ],
   imports: [
+    BrowserModule,
     AppRoutingModule,
     CoreModule.forRoot({userName: 'Miss Marple'}),
     SharedModule,
