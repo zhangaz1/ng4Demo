@@ -14,7 +14,7 @@ import { CrisisService }     from './crisis.service';
     templateUrl: './crisis-list.component.html',
     animations: [
         trigger('crisisState', [
-          transition('* => active', [
+          transition('void => *', [
             style({
                 backgroundColor: 'red',
                 color: 'yellow',
