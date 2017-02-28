@@ -14,43 +14,23 @@ import { CrisisService }     from './crisis.service';
     templateUrl: './crisis-list.component.html',
     animations: [
         trigger('crisisState', [
-            transition(':enter', [
-                style({
-                    position: 'relative',
-                    left: -50,
-                    backgroundColor: 'red',
-                    color: 'yellow',
-                    transform: 'scale(1)',
-                }),
-                animate(
-                    '1000ms ease-out',
-                    style({
-                        position: 'relative',
-                        left: 0,
-                        backgroundColor: 'green',
-                        color: 'red',
-                        transform: 'scale(1.1)',
-                    })
-                ),
+            state('inactive', style({transform: 'translateX(0) scale(1)'})),
+            state('active',   style({transform: 'translateX(0) scale(1.1)'})),
+            transition('inactive => active', animate('100ms ease-in')),
+            transition('active => inactive', animate('100ms ease-out')),
+            transition('void => inactive', [
+              style({transform: 'translateX(-100%) scale(1)'}),
+              animate(100)
             ]),
-            transition(':leave', [
-                style({
-                    position: 'relative',
-                    left: 0,
-                    backgroundColor: 'red',
-                    color: 'yellow',
-                    transform: 'scale(1)',
-                }),
-                animate(
-                    '1000ms ease-out',
-                    style({
-                        position: 'relative',
-                        left: 100,
-                        backgroundColor: 'green',
-                        color: 'red',
-                        transform: 'scale(1.1)',
-                    })
-                ),
+            transition('inactive => void', [
+              animate(100, style({transform: 'translateX(100%) scale(1)'}))
+            ]),
+            transition('void => active', [
+              style({transform: 'translateX(0) scale(0)'}),
+              animate(200)
+            ]),
+            transition('active => void', [
+              animate(200, style({transform: 'translateX(0) scale(0)'}))
             ]),
         ])
     ],
