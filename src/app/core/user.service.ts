@@ -1,4 +1,8 @@
-import { Injectable }       from '@angular/core';
+import { Injectable, Optional }       from '@angular/core';
+
+export class UserServiceConfig {
+  userName = 'Philip Marlowe';
+}
 
 @Injectable()
 export class UserService {
@@ -7,4 +11,12 @@ export class UserService {
         isAuthorized: false,
     };
     userName = 'Sherlock Holmes';
+
+    constructor(
+        @Optional() config: UserServiceConfig
+    ) {
+        if(config) {
+            this.userName = config.userName;
+        }
+    }
 }

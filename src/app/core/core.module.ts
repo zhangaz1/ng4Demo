@@ -1,8 +1,9 @@
-import { NgModule, Optional, SkipSelf }     from '@angular/core';
+import { ModuleWithProviders, NgModule,
+        Optional, SkipSelf,  }     from '@angular/core';
 
 
 import { Logger }             from './logger.service';
-import { UserService }        from './user.service';
+import { UserService, UserServiceConfig }        from './user.service';
 import { EventBetterLogger }  from './event-better-logger.service';
 
 import { throwIfAlreadyLoaded }     from './module-import-guard';
@@ -34,6 +35,15 @@ export class CoreModule {
         parentModule: CoreModule
     ) {
         throwIfAlreadyLoaded(parentModule, 'CoreModule');
+    }
+
+    static forRoot(config: UserServiceConfig): ModuleWithProviders {
+        return {
+            ngModule: CoreModule,
+            providers: [
+                { provide: UserServiceConfig, useValue: config }
+            ],
+        }
     }
 
  }

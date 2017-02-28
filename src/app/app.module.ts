@@ -23,7 +23,7 @@ import { ContactModule }   from './modules/contact/contact.module';
   ],
   imports: [
     AppRoutingModule,
-    CoreModule,
+    CoreModule.forRoot({userName: 'Miss Marple'}),
     SharedModule,
     ContactModule,
     HeroModule,
