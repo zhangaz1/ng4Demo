@@ -8,6 +8,7 @@ import { HttpModule }       from '@angular/http';
 import { KeyUpComponent }       from './components/key-up.component';
 import { SizerComponent }       from './components/sizer.component';
 
+import { AwesomePipe }          from './awesome.pipe';
 import { HighlightDirective }   from './highlight.directive';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { HighlightDirective }   from './highlight.directive';
     declarations: [
         KeyUpComponent,
         SizerComponent,
+        AwesomePipe,
         HighlightDirective,
     ],
     exports: [
@@ -24,6 +26,7 @@ import { HighlightDirective }   from './highlight.directive';
         HttpModule,
         KeyUpComponent,        
         SizerComponent,
+        AwesomePipe,
         HighlightDirective,
     ],
 })
