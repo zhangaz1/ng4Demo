@@ -24,7 +24,7 @@ import { CrisisService }     from './crisis.service';
             color: 'red',
             transform: 'scale(1.1)',
           })),
-          transition('inactive => active, active => inactive', animate('500ms ease-out')),
+          transition('inactive <=> active', animate('500ms ease-out')),
         ]),
     ],
 })
