@@ -5,6 +5,7 @@ import { Component, OnInit,
           transition,
           animate,
           keyframes,
+          group,
          } from '@angular/core';
 
 import { Crisis }            from './../../models/crisis';
@@ -15,20 +16,29 @@ import { CrisisService }     from './crisis.service';
     templateUrl: './crisis-list.component.html',
     animations: [
         trigger('crisisState', [
-            state('in', style({transform: 'translateX(0)'})),
+            state('in', style({width: 120, transform: 'translateX(0)', opacity: 1})),
             transition('void => *', [
-              animate(3000, keyframes([
-                style({opacity: 0, transform: 'translateX(-100%)', offset: 0}),
-                style({opacity: 1, transform: 'translateX(15px)',  offset: 0.3}),
-                style({opacity: 1, transform: 'translateX(0)',     offset: 1.0})
-              ]))
+              style({width: 10, transform: 'translateX(50px)', opacity: 0}),
+              group([
+                animate('0.3s 0.1s ease', style({
+                  transform: 'translateX(0)',
+                  width: 120
+                })),
+                animate('0.3s ease', style({
+                  opacity: 1
+                }))
+              ])
             ]),
             transition('* => void', [
-              animate(300, keyframes([
-                style({opacity: 1, transform: 'translateX(0)',     offset: 0}),
-                style({opacity: 1, transform: 'translateX(-15px)', offset: 0.7}),
-                style({opacity: 0, transform: 'translateX(100%)',  offset: 1.0})
-              ]))
+              group([
+                animate('0.3s ease', style({
+                  transform: 'translateX(50px)',
+                  width: 10
+                })),
+                animate('0.3s 0.2s ease', style({
+                  opacity: 0
+                }))
+              ])
             ]),
         ])
     ],
