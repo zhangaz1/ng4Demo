@@ -83,6 +83,10 @@ export class HeroesComponent implements OnInit {
   }
 
   onSelect(hero: Hero): void {
+    let h = new Hero(100, 'zs', 'ls');
+    let myHero = new MyHero();
+    myHero.toggleState();
+
     this.selectedHero = hero;
     // hero.toggleState();
     hero.state = hero.state === 'active'
@@ -93,4 +97,14 @@ export class HeroesComponent implements OnInit {
   gotoDetail(): void {
     this.router.navigate(['/detail', this.selectedHero.id]);
   }
+}
+
+class MyHero {
+    state = 'inactive';
+
+    toggleState() {
+        this.state = this.state === 'active'
+                        ? 'inactive'
+                        : 'active';
+    }
 }
