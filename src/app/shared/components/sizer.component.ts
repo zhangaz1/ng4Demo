@@ -10,6 +10,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
             <button (click)="inc()" title="bigger">+</button>
         </div>
     `,
+    styles: [`:host {
+                  display: block;
+                  border: solid 1px blue;
+                }`],
     // inputs: ['size:mySize'],
     // outputs: ['sizeChange:mySizeChange'],
 })

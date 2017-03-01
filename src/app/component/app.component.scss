@@ -9,6 +9,11 @@ h2 {
   padding-top: 0;
 }
 
+:host {
+  display: block;
+  border: solid 1px red;
+}
+
 nav {
   a {
     padding: 5px 10px;
