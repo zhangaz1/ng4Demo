@@ -14,6 +14,9 @@ export class TohListComponent implements OnInit {
     heroes: Hero[];
     mode = 'observable';
 
+    private handlerError = error => this.errorMessage = <any>error;
+    
+
     constructor(private tohService: TohService) { }
 
     ngOnInit() {
@@ -21,7 +24,12 @@ export class TohListComponent implements OnInit {
     }
 
     getHeroes() {
-        this.tohService.getHeroes();
+        this.tohService
+            .getHeroes()
+            .subscribe(
+                heroes => this.heroes = heroes,
+                this.handlerError
+            );
     }
 
     addHero(heroName: string) {
@@ -29,7 +37,12 @@ export class TohListComponent implements OnInit {
             return;
         }
         
-        this.tohService.addHero(heroName);
+        this.tohService
+            .addHero(heroName)
+            .subscribe(
+                hero => this.heroes.push(hero),
+                this.handlerError
+            );
 
         this.errorMessage = 'no service';
     }
