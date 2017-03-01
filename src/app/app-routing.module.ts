@@ -13,7 +13,7 @@ export const routes: Routes = [
     { path: 'contact', component: ContactComponent },    
     // { path: 'contact', loadChildren: 'app/modules/contact/contact.module#ContactModule'},
     { path: 'crisis', loadChildren: 'app/modules/crisis/crisis.module#CrisisModule' },
-    // { path: 'heroes', loadChildren: 'app/modules/hero/hero.module#HeroModule' },
+    { path: 'toh', loadChildren: 'app/modules/toh/toh.module#TohModule' },
 ];
 
 @NgModule({
