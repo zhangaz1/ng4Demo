@@ -8,6 +8,8 @@ import { HighlightDirective }   from './highlight.directive';
 
 import { ContactRoutingModule }     from './contact-routing.module';
 
+import { testServerToken }   from './../../inject-tokens';
+
 @NgModule({
     imports: [
         SharedModule,
@@ -20,7 +22,13 @@ import { ContactRoutingModule }     from './contact-routing.module';
     exports: [
         // ContactComponent,
     ],
-    providers: [ ContactService ],
+    providers: [ 
+        ContactService,
+        {
+            provide: testServerToken,
+            useValue: { name: 'from contact module' },
+        },        
+    ],
     // bootstrap: [ ContactComponent ],
 })
 export class ContactModule {}

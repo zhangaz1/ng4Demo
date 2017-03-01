@@ -9,10 +9,10 @@ import { testServerToken }   from './../inject-tokens';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
-  providers: [{
-    provide: testServerToken,
-    useValue: { name: 'from app conponent' },
-  }],
+  // providers: [{
+  //   provide: testServerToken,
+  //   useValue: { name: 'from app conponent' },
+  // }],
 })
 export class AppComponent implements OnInit {  
   fontSizePx: number;

@@ -28,10 +28,12 @@ import { testServerToken }   from './inject-tokens';
     ContactModule,
     HeroModule,
   ],
-  providers: [{
-    provide: testServerToken,
-    useValue: { name: 'from app module' },
-  }],
+  providers: [
+    // {
+    //   provide: testServerToken,
+    //   useValue: { name: 'from app module' },
+    // },
+  ],
   bootstrap: [ AppComponent ],
 })
 export class AppModule { }
