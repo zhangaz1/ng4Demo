@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Optional, Injector } from '@angular/core';
+import { Component, OnInit, Inject, Optional, Injector, ViewEncapsulation } from '@angular/core';
 
 import { APP_CONFIG, AppConfig }     from './../app-config';
 
@@ -6,6 +6,7 @@ import { APP_CONFIG, AppConfig }     from './../app-config';
   selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class AppComponent implements OnInit {  
   fontSizePx: number;
