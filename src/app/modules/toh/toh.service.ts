@@ -1,5 +1,8 @@
 import { Injectable }     from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Http, 
+        Response, 
+        Headers, 
+        RequestOptions }  from '@angular/http';
 
 import { Observable }     from 'rxjs/Observable';
 
@@ -9,7 +12,7 @@ import { Hero }     from './../../models/hero';
 export class TohService {
     private heroesUrl = 'app/heroes';
 
-    constructor(private http: Http) { }
+    constructor(private http: Http,private defaultRequestOptions: RequestOptions) { }
 
     getHeroes(): Observable<Hero[]> {
         return this.http
@@ -19,15 +22,8 @@ export class TohService {
     }
 
     addHero(name: string) {
-        let headers = new Headers({
-            'Content-Type': 'application/json',
-        });
-        let options = new RequestOptions({
-            headers: headers,
-        });
-
         return this.http
-                    .post(this.heroesUrl, { name }, options)
+                    .post(this.heroesUrl, { name }, this.defaultRequestOptions)
                     .map(this.extractData)
                     .catch(this.handleError);
      }

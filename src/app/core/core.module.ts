@@ -8,9 +8,11 @@ import { HttpModule }       from '@angular/http';
 import { InMemoryWebApiModule }   from 'angular-in-memory-web-api';
 import { InMemoryDataService }    from './in-memory-data.service';
 
-import { Logger }             from './logger.service';
-import { UserService, UserServiceConfig }        from './user.service';
-import { EventBetterLogger }  from './event-better-logger.service';
+import { Logger }                 from './logger.service';
+import { UserService,
+        UserServiceConfig }       from './user.service';
+import { EventBetterLogger }      from './event-better-logger.service';
+import { requestOptionsProvider } from './default-request-options.service';
 
 import { TitleComponent }       from './title.component';
 
@@ -30,6 +32,7 @@ import { throwIfAlreadyLoaded }     from './module-import-guard';
         TitleComponent,        
     ],
     providers: [
+        requestOptionsProvider,
         UserService,
         EventBetterLogger,
         // { provide: Logger, useClass: EventBetterLogger }, // 两个eventBetterLogger实例
