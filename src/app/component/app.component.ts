@@ -2,12 +2,17 @@ import { Component, OnInit, Inject, Optional, Injector, ViewEncapsulation } from
 
 import { APP_CONFIG, AppConfig }     from './../app-config';
 
+import { testServerToken }   from './../inject-tokens';
+
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
-  providers: [],
+  providers: [{
+    provide: testServerToken,
+    useValue: { name: 'from app conponent' },
+  }],
 })
 export class AppComponent implements OnInit {  
   fontSizePx: number;
