@@ -4,6 +4,8 @@ import { SharedModule }     from './../../shared/shared.module';
 
 import { TohRoutingModule }     from './toh-routing.module';
 
+import { TohService }     from './toh.service';
+
 import { TohListComponent }     from './components/list/toh-list.component';
 
 @NgModule({
@@ -15,6 +17,6 @@ import { TohListComponent }     from './components/list/toh-list.component';
         TohRoutingModule,
     ],
     exports: [],
-    providers: [],
+    providers: [TohService],
 })
 export class TohModule { }
