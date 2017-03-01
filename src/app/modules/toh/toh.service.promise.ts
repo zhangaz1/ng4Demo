@@ -13,19 +13,16 @@ export class TohService {
     constructor(private http: Http,private defaultRequestOptions: RequestOptions) { }
 
     getHeroes(): Promise<Hero[]> {
+        let s = this.extractData;
         return this.http
                     .get(this.heroesUrl)                    
-                    .toPromise()
-                    .then(this.extractData)
-                    .catch(this.handleError);
+                    .toPromise(this.extractData, this.handleError);
     }
 
     addHero(name: string) {
         return this.http
                     .post(this.heroesUrl, { name }, this.defaultRequestOptions)
-                    .toPromise()
-                    .then(this.extractData)
-                    .catch(this.handleError);
+                    .toPromise(this.extractData, this.handleError);
      }
 
      private extractData(res: Response) {
