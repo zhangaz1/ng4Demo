@@ -10,7 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
             <button (click)="inc()" title="bigger">+</button>
         </div>
     `,
-    styles: [`:host {
+    styles: [`:host(my-sizer) {
                   display: block;
                   border: solid 1px blue;
                 }`],
