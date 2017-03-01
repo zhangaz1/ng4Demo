@@ -7,6 +7,7 @@ import { APP_CONFIG, AppConfig }     from './../app-config';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
+  providers: [],
 })
 export class AppComponent implements OnInit {  
   fontSizePx: number;

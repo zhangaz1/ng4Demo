@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, Optional } from '@angular/core';
 
 import { Contact, ContactService }         from './contact.service';
 import { UserService }                     from './../../core/user.service';
+
+import { testServerToken }   from './../../inject-tokens';
 
 @Component({
     moduleId: module.id,
@@ -20,9 +22,15 @@ export class ContactComponent implements OnInit {
 
     constructor(
         private contactService: ContactService, 
-        userService: UserService
+        userService: UserService,
+        @Inject(testServerToken) @Optional() testService: any
     ) { 
         this.userName = userService.userName;
+        if(testService){
+            console.log('TestService: ', testService);
+        } else {
+            console.log('no TestService');
+        }
     }
 
     ngOnInit() {

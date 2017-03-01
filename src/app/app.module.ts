@@ -14,6 +14,8 @@ import { AppComponent }         from './component/app.component';
 
 import { ContactModule }   from './modules/contact/contact.module';
 
+import { testServerToken }   from './inject-tokens';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,8 +28,10 @@ import { ContactModule }   from './modules/contact/contact.module';
     ContactModule,
     HeroModule,
   ],
-  providers: [
-  ],
+  providers: [{
+    provide: testServerToken,
+    useValue: { name: 'from app module' },
+  }],
   bootstrap: [ AppComponent ],
 })
 export class AppModule { }
