@@ -18,6 +18,9 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    let config = require('./test.json').then(d => console.log(d));
+    console.log(config);
+
     this.fontSizePx = 28;
 
     if(this.config){
