@@ -29,10 +29,10 @@ import { testServerToken }   from './inject-tokens';
     HeroModule,
   ],
   providers: [
-    // {
-    //   provide: testServerToken,
-    //   useValue: { name: 'from app module' },
-    // },
+    {
+      provide: testServerToken,
+      useValue: { name: 'from app module' },
+    },
   ],
   bootstrap: [ AppComponent ],
 })
