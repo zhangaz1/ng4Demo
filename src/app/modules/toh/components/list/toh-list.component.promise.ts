@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Hero }     from './../../../../models/hero';
 
-import { TohService }     from './../../toh.service';
+import { TohService }     from './../../toh.service.promise';
 
 @Component({
     moduleId: module.id,
@@ -10,7 +10,7 @@ import { TohService }     from './../../toh.service';
     templateUrl: './toh-list.component.html',
     providers: [ TohService ]
 })
-export class TohListComponent implements OnInit {
+export class TohListPromiseComponent implements OnInit {
     errorMessage: string;
     heroes: Hero[];
     mode = 'observable';
@@ -27,7 +27,7 @@ export class TohListComponent implements OnInit {
     getHeroes() {
         this.tohService
             .getHeroes()
-            .subscribe(
+            .then(
                 heroes => this.heroes = heroes,
                 this.handlerError
             );
@@ -40,7 +40,7 @@ export class TohListComponent implements OnInit {
         
         this.tohService
             .addHero(heroName)
-            .subscribe(
+            .then(
                 hero => this.heroes.push(hero),
                 this.handlerError
             );
