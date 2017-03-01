@@ -20,11 +20,11 @@ import { testServerToken }   from './inject-tokens';
   declarations: [
     AppComponent,
   ],
-  imports: [
+  imports: [    
     BrowserModule,
     AppRoutingModule,
     CoreModule.forRoot({userName: 'Miss Marple'}),
-    SharedModule,
+    SharedModule,   
     ContactModule,
     HeroModule,
   ],

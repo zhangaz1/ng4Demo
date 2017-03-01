@@ -5,9 +5,6 @@ import { SharedModule }     from './../../shared/shared.module';
 
 import { HeroRoutingModule } from './hero.routing.module';
 
-import { InMemoryWebApiModule }   from 'angular-in-memory-web-api';
-import { InMemoryDataService }    from './../../core/in-memory-data.service';
-
 import { HeroService }        from './hero.service';
 import { heroServiceProvider }  from './hero.service.provider';
 
@@ -21,7 +18,6 @@ import { HeroFormComponent }    from './form/hero-form.component';
     imports: [
         CoreModule,
         SharedModule,
-        InMemoryWebApiModule.forRoot(InMemoryDataService),
         HeroRoutingModule,
     ],
     declarations: [

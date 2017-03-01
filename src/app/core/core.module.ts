@@ -3,6 +3,11 @@ import { ModuleWithProviders, NgModule,
 
 import { CommonModule }     from '@angular/common';
 
+import { HttpModule }       from '@angular/http';
+
+import { InMemoryWebApiModule }   from 'angular-in-memory-web-api';
+import { InMemoryDataService }    from './in-memory-data.service';
+
 import { Logger }             from './logger.service';
 import { UserService, UserServiceConfig }        from './user.service';
 import { EventBetterLogger }  from './event-better-logger.service';
@@ -15,6 +20,8 @@ import { throwIfAlreadyLoaded }     from './module-import-guard';
 @NgModule({
     imports: [
         CommonModule,
+        HttpModule,
+        InMemoryWebApiModule.forRoot(InMemoryDataService),         
     ],
     declarations: [
         TitleComponent,        

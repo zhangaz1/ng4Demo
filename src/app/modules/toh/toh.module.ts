@@ -14,7 +14,7 @@ import { TohListComponent }     from './components/list/toh-list.component';
     ],
     imports: [
         SharedModule,
-        TohRoutingModule,
+        TohRoutingModule,        
     ],
     exports: [],
     providers: [TohService],
