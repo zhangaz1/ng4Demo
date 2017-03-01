@@ -1,3 +1,12 @@
+<div>
+    <h4>Pick a highlight color:</h4>
+    <div>
+        <input type="radio" name="colors" (click)="highLightColor='lightgreen'">Green
+        <input type="radio" name="colors" (click)="highLightColor='yellow'">Yellow
+        <input type="radio" name="colors" (click)="highLightColor='cyan'">Cyan
+    </div>
+</div>
+
 <h3 highlight>Crisis List</h3>
 <h3  [highlight]="'red'" style="background-color: green">Crisis List2</h3>
 <h3  [highlight]="highLightColor">Crisis List2</h3>
