@@ -12,6 +12,10 @@ import { testServerToken }   from './../../inject-tokens';
     styleUrls: [
         './contact.component.css',
     ],
+    providers: [{
+        provide: testServerToken,
+        useValue: { name: 'from contact conponent' },
+    }],
 })
 export class ContactComponent implements OnInit {
     contact: Contact;
