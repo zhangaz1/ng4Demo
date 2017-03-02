@@ -6,7 +6,7 @@ import { Http,
 
 import { Observable }     from 'rxjs/Observable';
 
-import { Hero }     from './../../models/hero';
+import { Hero }     from './../../../models/hero';
 
 @Injectable()
 export class TohService {

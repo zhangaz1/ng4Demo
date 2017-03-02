@@ -4,7 +4,7 @@ import { Http,
         Headers, 
         RequestOptions }  from '@angular/http';
 
-import { Hero }     from './../../models/hero';
+import { Hero }     from './../../../models/hero';
 
 @Injectable()
 export class TohService {

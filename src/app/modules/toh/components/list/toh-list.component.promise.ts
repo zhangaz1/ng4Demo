@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Hero }     from './../../../../models/hero';
 
-import { TohService }     from './../../toh.service.promise';
+import { TohService }     from './../../services/toh.service.promise';
 
 @Component({
     moduleId: module.id,
