@@ -5,7 +5,7 @@ import { Jsonp, URLSearchParams }     from '@angular/http';
 export class WikiService {
     constructor(private jsonp: Jsonp) { }
 
-    search(term: string) {
+    search(term: string): any {
         
         let wikiUrl = 'http://en.wikipedia.org/w/api.php';
 
@@ -17,6 +17,6 @@ export class WikiService {
 
         return this.jsonp
                     .get(wikiUrl,{ search: params })
-                    .map(response => <string[]> response.json());
+                    .map(response => response.json());
     }
 }

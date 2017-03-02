@@ -12,20 +12,26 @@ import { WikiService }     from './../../services/wiki.service';
     providers: [WikiService],
 })
 export class WikiComponent implements OnInit {
-    items: Observable<string[]>;
+    items: Observable<any>;
 
     private searchTermStream = new Subject<string>();
+    private handleError = error => {
+        console.log(error);
+        return Observable.throw(error)
+    };
 
     constructor(private wikiService: WikiService) { }
 
     ngOnInit() {
-        let wikiService = this.wikiService;
-        let doSearch = wikiService.search.bind(wikiService);
+        let doSearch = term => term 
+                            ? this.wikiService.search(term)
+                            : Observable.of(null);
 
         this.items = this.searchTermStream
                         .debounceTime(300)
                         .distinctUntilChanged()
-                        .switchMap(doSearch);
+                        .switchMap(doSearch)
+                        .catch(this.handleError);
     }
 
     search(term: string) {
