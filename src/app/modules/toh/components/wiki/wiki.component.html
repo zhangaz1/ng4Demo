@@ -5,5 +5,10 @@
 <input type="text" #term (keyup)="search(term.value)" />
 
 <ul>
-    <li *ngFor="let item of items | async">{{item}}</li>
+    <li *ngFor="let item of items | async; let isFirst = first;">
+        <ul>
+            <h3>{{isFirst ? 'search Key:' : 'Items:' + item.length}}</h3>
+            <li *ngFor="let i of [].concat(item)">{{i}}</li>
+        </ul>
+    </li>
 </ul>

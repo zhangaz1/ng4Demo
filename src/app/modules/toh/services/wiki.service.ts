@@ -17,6 +17,6 @@ export class WikiService {
 
         return this.jsonp
                     .get(wikiUrl,{ search: params })
-                    .map(response => <string[]> response.json()[1]);
+                    .map(response => <string[]> response.json());
     }
 }
