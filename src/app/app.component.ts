@@ -11,19 +11,40 @@ export class AppComponent implements OnInit {
   title = 'app works!';
 
   ngOnInit() {
-    testUnsubscribe1();
+    // testUnsubscribe1();
+    testObservable1();
   }
+}
+
+function testObservable1() {
+  let observable = Observable.create(function(observer) {
+    observer.next(1);
+    observer.next(2);
+    observer.next(3);
+    setTimeout(() => {
+      observer.next(4);
+      observer.complete();
+    });
+  });
+
+  console.log('just before subscribe');
+  observable.subscribe({
+    next: x => console.log('got value ' + x),
+    error: err => console.error('something wrong occurred:', err),
+    complete: () => console.log('done'),
+  });
+  console.log('just after subscribe');
 }
 
 function testUnsubscribe1() {
     let i = 0;
   
-    let observable = Observable.create(function subscribe(observer) {
+    let observable = Observable.create(function(observer) {
       let intervalID = setInterval(() => {
         observer.next(i++);
       }, 1000);
       
-      return function unsubscribe() {
+      return function() {
         clearInterval(intervalID);
       };
     });
