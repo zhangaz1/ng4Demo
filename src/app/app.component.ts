@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   title = 'app works!';
 
   ngOnInit() {
+    console.clear();
     // testUnsubscribe1();
     // testObservable1();
     testObservable2();    
@@ -35,11 +36,16 @@ function testObservable2() {
     observer.next(1);
     observer.next(2);
     observer.next(3);
-    setTimeout(() => {
+    let intervalId = setTimeout(() => {
       console.log('next 4');
       observer.next(4);
       observer.complete();
     }, 1000);
+
+    return () => {
+      clearInterval(intervalId);
+      console.log('unsubscrib');
+    }
   });
 
   console.log('just before subscribe');
