@@ -46,6 +46,9 @@ function testObservable2() {
   let sub1 = observable.subscribe({
     next: function(x) {      
       console.log('got value ' + x, sub1);
+      if(sub1 && x!=='recursion'){
+        sub1.next('recursion');
+      }
     },
     error: err => console.error('something wrong occurred:', err),
     complete: function() {
@@ -57,7 +60,11 @@ function testObservable2() {
   });
 
   console.log(sub1);
+  sub1.next('sub2');
+  sub1.destination.next('distaination2');
   var ur = sub1.unsubscribe();
+  sub1.next('sub3');
+  sub1.destination.next('distaination3');  
   console.log(sub1);
 
   sub1.destination.next(6);
