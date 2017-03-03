@@ -16,9 +16,9 @@ export class AppComponent implements OnInit {
 }
 
 function testUnsubscribe1() {
+    let i = 0;
+  
     let observable = Observable.create(function subscribe(observer) {
-      let i = 0;
-
       let intervalID = setInterval(() => {
         observer.next(i++);
       }, 1000);
