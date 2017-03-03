@@ -12,12 +12,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     // testUnsubscribe1();
-    testObservable1();
-    // testObservable2();    
+    // testObservable1();
+    testObservable2();    
+    // testObservable3();    
   }
 }
 
-function testObservable2() {
+function testObservable3() {
   let observable = Observable.create(observer => {
     console.log('Hello');
     observer.next(42);
@@ -26,6 +27,41 @@ function testObservable2() {
   console.log('just before subscribe');
   let sub1 = observable.subscribe(n => console.log(n));
   observable.subscribe(n => console.log(n));
+  console.log('just after subscribe');
+}
+
+function testObservable2() {
+  let observable = Observable.create(function(observer) {
+    observer.next(1);
+    observer.next(2);
+    observer.next(3);
+    setTimeout(() => {
+      console.log('next 4');
+      observer.next(4);
+      observer.complete();
+    }, 1000);
+  });
+
+  console.log('just before subscribe');
+  let sub1 = observable.subscribe({
+    next: function(x) {      
+      console.log('got value ' + x, sub1);
+    },
+    error: err => console.error('something wrong occurred:', err),
+    complete: function() {
+      console.log('done', sub1);
+      setTimeout(function() {
+        console.log(sub1);
+      }, 10);
+    },
+  });
+
+  console.log(sub1);
+  var ur = sub1.unsubscribe();
+  console.log(sub1);
+
+  sub1.destination.next(6);
+
   console.log('just after subscribe');
 }
 
