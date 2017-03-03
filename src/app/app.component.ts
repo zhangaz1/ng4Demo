@@ -12,8 +12,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     // testUnsubscribe1();
-    // testObservable1();
-    testObservable2();    
+    testObservable1();
+    // testObservable2();    
   }
 }
 
@@ -24,7 +24,7 @@ function testObservable2() {
   });
 
   console.log('just before subscribe');
-  observable.subscribe(n => console.log(n));
+  let sub1 = observable.subscribe(n => console.log(n));
   observable.subscribe(n => console.log(n));
   console.log('just after subscribe');
 }
@@ -41,10 +41,17 @@ function testObservable1() {
   });
 
   console.log('just before subscribe');
-  observable.subscribe({
-    next: x => console.log('got value ' + x),
+  let sub1 = observable.subscribe({
+    next: function(x) {      
+      console.log('got value ' + x, sub1);
+    },
     error: err => console.error('something wrong occurred:', err),
-    complete: () => console.log('done'),
+    complete: function() {
+      console.log('done', sub1);
+      setTimeout(function() {
+        console.log(sub1);
+      }, 10);
+    },
   });
   console.log('just after subscribe');
 }
