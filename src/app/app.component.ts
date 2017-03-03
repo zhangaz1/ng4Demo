@@ -12,8 +12,21 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     // testUnsubscribe1();
-    testObservable1();
+    // testObservable1();
+    testObservable2();    
   }
+}
+
+function testObservable2() {
+  let observable = Observable.create(observer => {
+    console.log('Hello');
+    observer.next(42);
+  });
+
+  console.log('just before subscribe');
+  observable.subscribe(n => console.log(n));
+  observable.subscribe(n => console.log(n));
+  console.log('just after subscribe');
 }
 
 function testObservable1() {
