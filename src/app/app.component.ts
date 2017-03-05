@@ -34,6 +34,9 @@ function testObservable3() {
 function testObservable2() {
   let observable = Observable.create(function(observer) {
     try{
+      if(5 === 5){
+        throw new Error('emmit error');
+      }
       var n = observer.next(1);
       console.log('n:', n);
       observer.next(2);
