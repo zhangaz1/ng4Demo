@@ -33,7 +33,8 @@ function testObservable3() {
 
 function testObservable2() {
   let observable = Observable.create(function(observer) {
-    observer.next(1);
+    var n = observer.next(1);
+    console.log('n:', n);
     observer.next(2);
     observer.next(3);
     let intervalId = setTimeout(() => {
@@ -54,6 +55,10 @@ function testObservable2() {
       console.log('got value ' + x, sub1);
       if(sub1 && x!=='recursion'){
         sub1.next('recursion');
+      }
+
+      if(x===1) {
+        return 5;
       }
     },
     error: err => console.error('something wrong occurred:', err),
