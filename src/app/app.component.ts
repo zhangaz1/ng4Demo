@@ -33,20 +33,24 @@ function testObservable3() {
 
 function testObservable2() {
   let observable = Observable.create(function(observer) {
-    var n = observer.next(1);
-    console.log('n:', n);
-    observer.next(2);
-    observer.next(3);
-    let intervalId = setTimeout(() => {
-      console.log('next 4');
-      observer.next(4);
-      observer.complete();
-    }, 1000);
-
-    return () => {
-      clearInterval(intervalId);
-      console.log('unsubscrib');
-    }
+    try{
+      var n = observer.next(1);
+      console.log('n:', n);
+      observer.next(2);
+      observer.next(3);
+      let intervalId = setTimeout(() => {
+        console.log('next 4');
+        observer.next(4);
+        observer.complete();
+      }, 1000);
+  
+      return () => {
+        clearInterval(intervalId);
+        console.log('unsubscrib');
+      }
+    } catch(err) {
+      observer.error(err);
+    }    
   });
 
   console.log('just before subscribe');
@@ -58,7 +62,8 @@ function testObservable2() {
       }
 
       if(x===1) {
-        return 5;
+        throw new Error('trigger error');
+        // return 5;
       }
     },
     error: err => console.error('something wrong occurred:', err),
