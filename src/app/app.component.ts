@@ -19,19 +19,31 @@ export class AppComponent implements OnInit {
     // testSubscribeAdd();
     // testSubject();
     testObservableToSubject();
+    // testMulticast();
   }
 }
+
+// function testMulticast() {
+//   var source = Observable.from([1, 2, 3]);
+//   var subject = new Subject();
+//   var multicasted = source.multicast(subject);
+
+
+// }
 
 function testObservableToSubject() {
   var subject = new Subject();
 
-  subject.subscribe({
+  var subscriber = subject.subscribe({
     next: v => console.log('observerA:', v),
   });
+  console.log(subscriber);
   subject.subscribe(v => console.log('observerB:', v));
 
   var observable = Observable.from([1, 2, 3]);
-  observable.subscribe(subject);
+  var subjectSubscriber = observable.subscribe(subject);
+  
+  console.log(subjectSubscriber);
 }
 
 function testSubject() {
