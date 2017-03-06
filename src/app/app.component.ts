@@ -27,6 +27,7 @@ function testMulticast() {
   var source = Observable.from([1, 2, 3]);
   var subject = new Subject();
   var multicasted = source.multicast(subject);
+  console.log(multicasted);
 
   var subscriber = multicasted.subscribe({
     next: v => console.log('observerA:', v),
