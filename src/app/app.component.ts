@@ -28,17 +28,24 @@ function testAutoConnect() {
   let source = Observable.interval(500);
   let subject = new Subject();
   let multicasted = source.multicast(subject);
+
+  console.log('observerA subscribed');
   let subscription1 = multicasted.subscribe(v => console.log('observerA:', v));
   let subscriptionConnect = multicasted.connect();
 
   let subscription2;
   setTimeout(() => {
+    console.log('observerB subscribed');    
     subscription2 = multicasted.subscribe(v => console.log('observerB:', v));
   }, 600);
-
-  setTimeout(() => subscription1.unsubscribe(), 1600);
+  
+  setTimeout(() => {
+    console.log('observerA unsubscribed');
+    subscription1.unsubscribe();
+  }, 1600);
 
   setTimeout(() => {
+    console.log('observerB unsubscribed');    
     subscription2.unsubscribe();
     subscriptionConnect.unsubscribe();
   }, 2600);
