@@ -42,7 +42,7 @@ function testAsyncScheduler() {
     observer.next(3);
     observer.complete();
   })
-  // .observeOn(Scheduler.async);
+  .observeOn(Scheduler.async);
 
   console.log('just before subscribe');
   observable.subscribe({
