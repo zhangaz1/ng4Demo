@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Observable }   from 'rxjs';
+import { Observable, Subject }   from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +16,21 @@ export class AppComponent implements OnInit {
     // testObservable1();
     // testObservable2();    
     // testObservable3();
-    testSubscribeAdd();
+    // testSubscribeAdd();
+    testSubject();
   }
+}
+
+function testSubject() {
+  var subject = new Subject();
+
+  subject.subscribe({
+    next: v => console.log('observerA:', v),
+  });
+  subject.subscribe(v => console.log('observerB:', v));
+
+  subject.next(1);
+  subject.next(2);
 }
 
 function testSubscribeAdd() {
