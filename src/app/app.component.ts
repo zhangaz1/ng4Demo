@@ -27,11 +27,11 @@ export class AppComponent implements OnInit {
 function testAutoConnect() {
   let source = Observable.interval(500);
   let subject = new Subject();
-  let multicasted = source.multicast(subject);
+  let multicasted = source.multicast(subject).refCount();
 
   console.log('observerA subscribed');
   let subscription1 = multicasted.subscribe(v => console.log('observerA:', v));
-  let subscriptionConnect = multicasted.connect();
+  // let subscriptionConnect = multicasted.connect();
 
   let subscription2;
   setTimeout(() => {
@@ -47,7 +47,7 @@ function testAutoConnect() {
   setTimeout(() => {
     console.log('observerB unsubscribed');    
     subscription2.unsubscribe();
-    subscriptionConnect.unsubscribe();
+    // subscriptionConnect.unsubscribe();
   }, 2600);
 }
 
