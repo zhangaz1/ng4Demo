@@ -4,7 +4,8 @@ import { Observable,
         Subject, 
         BehaviorSubject,
         ReplaySubject,
-        AsyncSubject }   from 'rxjs';
+        AsyncSubject,
+        Scheduler }   from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -29,8 +30,27 @@ export class AppComponent implements OnInit {
     // testReplaySubject();
     // testAsyncSubject();
     // testMultiplyByTenOperator();
-    testStaticOperator();
+    // testStaticOperator();
+    testAsyncScheduler();
   }
+}
+
+function testAsyncScheduler() {
+  var observable = Observable.create(function(observer) {
+    observer.next(1);
+    observer.next(2);
+    observer.next(3);
+    observer.complete();
+  })
+  // .observeOn(Scheduler.async);
+
+  console.log('just before subscribe');
+  observable.subscribe({
+    next: x => console.log('got value:', x),
+    error: err => console.error('something wrong occurred:', err),
+    complete: () => console.log('done')
+  });
+  console.log('just after subscribe');
 }
 
 function testStaticOperator() {
