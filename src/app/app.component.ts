@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, 
         Subject, 
         BehaviorSubject,
-        ReplaySubject }   from 'rxjs';
+        ReplaySubject,
+        AsyncSubject }   from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -25,8 +26,24 @@ export class AppComponent implements OnInit {
     // testMulticast();
     // testAutoConnect();
     // testBehaviorSubject();
-    testReplaySubject();
+    // testReplaySubject();
+    testAsyncSubject();
   }
+}
+
+function testAsyncSubject() {
+  let subject = new AsyncSubject();
+  subject.subscribe(v => console.log('observerA:', v));
+  
+  subject.next(1);
+  subject.next(2);
+  subject.next(3);
+  subject.next(4);
+
+  subject.subscribe(v => console.log('observerB:', v));
+
+  subject.next(5);
+  subject.complete();  
 }
 
 function testReplaySubject() {
