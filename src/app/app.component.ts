@@ -28,8 +28,17 @@ export class AppComponent implements OnInit {
     // testBehaviorSubject();
     // testReplaySubject();
     // testAsyncSubject();
-    testMultiplyByTenOperator();
+    // testMultiplyByTenOperator();
+    testStaticOperator();
   }
+}
+
+function testStaticOperator() {
+  let observable1 = Observable.interval(1000);
+  let observable2 = Observable.interval(400);
+
+  var merged = Observable.merge(observable1, observable2);
+  merged.subscribe(v => console.log(v));
 }
 
 function testMultiplyByTenOperator() {
