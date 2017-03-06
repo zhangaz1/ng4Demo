@@ -33,7 +33,8 @@ export class AppComponent implements OnInit {
 }
 
 function testMultiplyByTenOperator() {
-  function multiplyByTen(input) {
+  Observable.prototype['multiplyByTen'] = function(): Observable<any> {
+    let input = this;
     let output = Observable.create(function(observer) {
       input.subscribe({
         next: v => observer.next(10 * v),
@@ -46,7 +47,7 @@ function testMultiplyByTenOperator() {
   }
 
   let input = Observable.from([1, 2, 3,4]);
-  let output = multiplyByTen(input);
+  let output = input['multiplyByTen']();
   output.subscribe(x => console.log(x));
 }
 
