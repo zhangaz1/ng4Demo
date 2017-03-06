@@ -16,9 +16,22 @@ export class AppComponent implements OnInit {
     // testObservable1();
     // testObservable2();    
     // testObservable3();
-    testSubscribeAdd();
+    // testSubscribeAdd();
     // testSubject();
+    testObservableToSubject();
   }
+}
+
+function testObservableToSubject() {
+  var subject = new Subject();
+
+  subject.subscribe({
+    next: v => console.log('observerA:', v),
+  });
+  subject.subscribe(v => console.log('observerB:', v));
+
+  var observable = Observable.from([1, 2, 3]);
+  observable.subscribe(subject);
 }
 
 function testSubject() {
