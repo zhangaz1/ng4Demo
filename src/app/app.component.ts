@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Observable, Subject }   from 'rxjs';
+import { Observable, Subject, BehaviorSubject }   from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -20,8 +20,21 @@ export class AppComponent implements OnInit {
     // testSubject();
     // testObservableToSubject();
     // testMulticast();
-    testAutoConnect();
+    // testAutoConnect();
+    testBehaviorSubject();
   }
+}
+
+function testBehaviorSubject() {
+  let subject = new BehaviorSubject(0);
+  let subscriber = subject.subscribe(v => console.log('observerA:', v));
+
+  subject.next(1);
+  subject.next(2);
+
+  subject.subscribe(v => console.log('observerB:', v));
+
+  subject.next(3);
 }
 
 function testAutoConnect() {
