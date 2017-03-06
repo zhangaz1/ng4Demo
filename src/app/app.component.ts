@@ -27,8 +27,27 @@ export class AppComponent implements OnInit {
     // testAutoConnect();
     // testBehaviorSubject();
     // testReplaySubject();
-    testAsyncSubject();
+    // testAsyncSubject();
+    testMultiplyByTenOperator();
   }
+}
+
+function testMultiplyByTenOperator() {
+  function multiplyByTen(input) {
+    let output = Observable.create(function(observer) {
+      input.subscribe({
+        next: v => observer.next(10 * v),
+        error: err => observer.error(err),
+        complete: () => observer.complete(),
+      });
+    });
+
+    return output;
+  }
+
+  let input = Observable.from([1, 2, 3,4]);
+  let output = multiplyByTen(input);
+  output.subscribe(x => console.log(x));
 }
 
 function testAsyncSubject() {
