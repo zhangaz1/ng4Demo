@@ -30,17 +30,20 @@ export class AppComponent implements OnInit {
 }
 
 function testReplaySubject() {
-  let subject = new ReplaySubject(3);
+  let subject = new ReplaySubject(3, 500);
   subject.subscribe(v => console.log('observerA:', v));
 
-  subject.next(1);
-  subject.next(2);
-  subject.next(3);
-  subject.next(4);
+  let i = 1;
+  let intervalId = setInterval(() => {
+    subject.next(i++);
+    if(i > 10) {
+      clearInterval(intervalId);
+    }
+  }, 200);
 
-  subject.subscribe(v => console.log('observerB:', v));
-
-  subject.next(5);
+  setTimeout(() => 
+    subject.subscribe(v => console.log('observerB:', v))
+  , 1000);
 }
 
 function testBehaviorSubject() {
