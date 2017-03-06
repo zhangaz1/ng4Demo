@@ -16,8 +16,8 @@ export class AppComponent implements OnInit {
     // testObservable1();
     // testObservable2();    
     // testObservable3();
-    // testSubscribeAdd();
-    testSubject();
+    testSubscribeAdd();
+    // testSubject();
   }
 }
 
@@ -38,7 +38,7 @@ function testSubscribeAdd() {
   var observable2 = Observable.interval(300);
 
   var subscription = observable1.subscribe(x => console.log('first:', x));
-  var childSubscription = observable2.subscribe(x => console.log('second:', x));
+  var childSubscription = observable1.subscribe(x => console.log('second:', x));
 
   subscription.add(childSubscription);
 
