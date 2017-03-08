@@ -33,8 +33,44 @@ export class AppComponent implements OnInit {
     // testStaticOperator();
     // testAsyncScheduler();
     // testConvertingToObservable();
-    testCreateObservable();
+    // testCreateObservable();
+    testControllingFlow();
   }
+}
+
+function testControllingFlow() {
+  let input = document.createElement('input');
+  input.type = 'text';
+  input.value = 'val';
+
+  let button = document.createElement('input');
+  button.type = 'button';
+  button.value = 'stope';
+  
+  let body = document.querySelector('body');
+  body.appendChild(input);
+  body.appendChild(button);
+
+  let inputObservable = Observable.fromEvent(document.querySelector('input'), 'keypress');
+  
+  inputObservable.filter(event => event['target'].value.length > 2)
+                .subscribe(value => console.log('filter:', value));
+
+  inputObservable.delay(200)
+                .subscribe(value => console.log('delay200:', value));
+
+  inputObservable.throttleTime(200)
+                .subscribe(value => console.log('throttle:', value));
+
+  inputObservable.debounceTime(200)
+                .subscribe(value => console.log('debounce:', value));
+  
+  inputObservable.take(3)
+                .subscribe(value => console.log('take:', value));
+
+  let stopStream = Observable.fromEvent(button, 'click');
+  inputObservable.takeUntil(stopStream)
+                .subscribe(value => console.log('takeUntil:', value));
 }
 
 function testCreateObservable() {
