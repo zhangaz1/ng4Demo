@@ -34,8 +34,42 @@ export class AppComponent implements OnInit {
     // testAsyncScheduler();
     // testConvertingToObservable();
     // testCreateObservable();
-    testControllingFlow();
+    // testControllingFlow();
+    testProduceingValue();
   }
+}
+
+function testProduceingValue() {
+  let input = document.createElement('input');
+  input.type = 'text';
+  input.value = 'val';
+  
+  let body = document.querySelector('body');
+  body.appendChild(input);
+
+  let inputObservable = Observable.fromEvent(input, 'keypress');
+
+  inputObservable.map(event => event['target'].value.split(''))
+                .subscribe(value => console.log('map:', value));
+
+  inputObservable.pluck('target', 'value')
+                // .map((value: string) => value.split(''))
+                .subscribe(value => console.log('pluck:', value));
+
+  inputObservable.pluck('target', 'value')
+                // .map((value: string) => value.split(''))
+                .pairwise()
+                .subscribe(value => console.log('pairwise:', value));
+
+  inputObservable.pluck('target', 'value')
+                // .map((value: string) => value.split(''))
+                .distinct()
+                .subscribe(value => console.log('distinct:', value));
+
+  inputObservable.pluck('target', 'value')
+                // .map((value: string) => value.split(''))
+                .distinctUntilChanged()
+                .subscribe(value => console.log('distinctUntilChanged:', value));
 }
 
 function testControllingFlow() {
