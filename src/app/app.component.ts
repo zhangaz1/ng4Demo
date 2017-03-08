@@ -31,8 +31,18 @@ export class AppComponent implements OnInit {
     // testAsyncSubject();
     // testMultiplyByTenOperator();
     // testStaticOperator();
-    testAsyncScheduler();
+    // testAsyncScheduler();
+    testConvertingToObservable();
   }
+}
+
+function testConvertingToObservable() {
+  Observable.of('foo', 'bar');
+  Observable.from([1, 2, 3]);
+  Observable.fromEvent(document.querySelector('button'), 'click');
+  Observable.fromPromise(new Promise(() => {}));
+  (Observable.bindCallback(function(any, cb) { cb();}))('any');
+  // bindNodeCallback
 }
 
 function testAsyncScheduler() {
