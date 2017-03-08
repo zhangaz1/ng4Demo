@@ -32,8 +32,29 @@ export class AppComponent implements OnInit {
     // testMultiplyByTenOperator();
     // testStaticOperator();
     // testAsyncScheduler();
-    testConvertingToObservable();
+    // testConvertingToObservable();
+    testCreateObservable();
   }
+}
+
+function testCreateObservable() {
+  function createSubject() {
+    let myObservable = new Subject();
+    myObservable.subscribe(v => console.log(v));
+    myObservable.next('foo');
+  }
+
+  function observableCreate() {
+    let myObservable = Observable.create(observer => {
+      observer.next('foo');
+      setTimeout(() => observer.next('bar'), 1000);
+    });
+    
+    myObservable.subscribe(v => console.log(v));
+  }
+
+  createSubject();
+  observableCreate();
 }
 
 function testConvertingToObservable() {
