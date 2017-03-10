@@ -38,8 +38,32 @@ export class AppComponent implements OnInit {
     // testProduceingValue();
     // testApplication();
     // testCombineLatest();
-    testConcat1();
+    // testConcat1();
+    testConcat2();
   }
+}
+
+function testConcat2() {
+  let timer1 = Observable.interval(1000).take(10);
+  timer1.subscribe({
+    next: n => console.log('timer1:', n),
+    complete: () => console.log('timer1 complete'),
+  });
+  let timer2 = Observable.interval(2000).take(6);
+  timer2.subscribe({
+    next: n => console.log('timer2:', n),
+    complete: () => console.log('timer2 complete'),
+  });
+  let timer3 = Observable.interval(500).take(10);
+  timer3.subscribe({
+    next: n => console.log('timer3:', n),
+    complete: () => console.log('timer3 complete'),
+  });
+  var result = Observable.concat(timer1, timer2, timer3);
+  result.subscribe({
+    next: n => console.log('result:', n),
+    complete: () => console.log('result complete'),
+  });
 }
 
 function testConcat1() {
