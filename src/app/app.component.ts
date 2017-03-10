@@ -35,8 +35,22 @@ export class AppComponent implements OnInit {
     // testConvertingToObservable();
     // testCreateObservable();
     // testControllingFlow();
-    testProduceingValue();
+    // testProduceingValue();
+    testApplication();
   }
+}
+
+function testApplication() {
+  let button = document.createElement('input');
+  button.type = 'button';
+  button.value = 'count';
+  
+  let body = document.querySelector('body');
+  body.appendChild(button);
+
+  Observable.fromEvent(button, 'click')
+          .scan((count: number) => count + 1,  0)
+          .subscribe(count => console.log('count:', count));
 }
 
 function testProduceingValue() {
