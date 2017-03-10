@@ -39,8 +39,19 @@ export class AppComponent implements OnInit {
     // testApplication();
     // testCombineLatest();
     // testConcat1();
-    testConcat2();
+    // testConcat2();
+    testCreate();
   }
+}
+
+function testCreate() {
+  let result = Observable.create(function(subscriber) {
+    subscriber.next(Math.random());
+    subscriber.next(Math.random());
+    subscriber.next(Math.random());
+    subscriber.complete();
+  });
+  result.subscribe(x => console.log(x));
 }
 
 function testConcat2() {
