@@ -37,8 +37,22 @@ export class AppComponent implements OnInit {
     // testControllingFlow();
     // testProduceingValue();
     // testApplication();
-    testCombineLatest();
+    // testCombineLatest();
+    testConcat1();
   }
+}
+
+function testConcat1() {
+  let timer = Observable.interval(1000).take(4);
+  timer.subscribe({
+    complete: () => console.log('timer complete'),
+  });
+  var sequence = Observable.range(1, 10);
+  sequence.subscribe({
+    complete: () => console.log('sequence complete'),
+  });
+  let result = Observable.concat(timer, sequence);
+  result.subscribe(n => console.log(n));
 }
 
 function testCombineLatest() {
