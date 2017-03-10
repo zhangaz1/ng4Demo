@@ -36,8 +36,16 @@ export class AppComponent implements OnInit {
     // testCreateObservable();
     // testControllingFlow();
     // testProduceingValue();
-    testApplication();
+    // testApplication();
+    testCombineLatest();
   }
+}
+
+function testCombineLatest() {
+  let weight = Observable.of(70, 72, 76, 79, 75);
+  let height = Observable.from([1.76, 1.77, 1.78]);
+  let bmi = Observable.combineLatest(weight, height, (w, h) => w / (h * h));
+  bmi.subscribe(x => console.log('BMI is:', x))
 }
 
 function testApplication() {
