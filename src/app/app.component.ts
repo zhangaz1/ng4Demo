@@ -49,14 +49,28 @@ export class AppComponent implements OnInit {
     // testForkJoin();
     // testFrom();
     // testYield();
-    testFromSet();
+    // testFromSet();
+    testFromEvent();
   }
+}
+
+function testFromEvent() {
+  let button = document.createElement('input');
+  button.type = 'button';
+  button.value = 'stope';
+  
+  let body = document.querySelector('body');
+  body.appendChild(button);
+
+  let clicks = Observable.fromEvent(button, 'click');
+  clicks.subscribe(x => console.log(x));
+  button.click();
 }
 
 function testFromSet() {
   let s = new Set(['foo', window]);
-  Observable.from(s)
-          .subscribe(x => console.log(x));
+  // Observable.from(s)
+  //         .subscribe(x => console.log(x));
 }
 
 function testYield() {
