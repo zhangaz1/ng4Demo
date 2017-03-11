@@ -58,8 +58,14 @@ export class AppComponent implements OnInit {
     // testMerge2();
     // testMerge3();
     // testNever();
-    testOf();
+    // testOf();
+    testRange();
   }
+}
+
+function testRange() {
+  let numbers = Observable.range(3, 5);
+  numbers.subscribe(x => console.log(x));
 }
 
 function testOf() {
