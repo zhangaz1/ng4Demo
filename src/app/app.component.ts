@@ -46,8 +46,14 @@ export class AppComponent implements OnInit {
     // testPromise();
     // testEmpty();
     // testMergeMap();
-    testForkJoin();
+    // testForkJoin();
+    testFrom();
   }
+}
+
+function testFrom() {
+  var source = Observable.from([1, 2, 30]);
+  source.subscribe(n => console.log(n));
 }
 
 function testForkJoin() {
