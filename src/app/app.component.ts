@@ -53,8 +53,16 @@ export class AppComponent implements OnInit {
     // testFromEvent();
     // testFromEventPattern();
     // testFromPromise();
-    testInterval();
+    // testInterval();
+    testMerge();
   }
+}
+
+function testMerge() {
+  let clicks = Observable.fromEvent(document, 'click');
+  let timer = Observable.interval(1000);
+  let clickOrTimer = Observable.merge(clicks, timer);
+  clickOrTimer.subscribe(x => console.log(x));
 }
 
 function testInterval() {
