@@ -59,8 +59,15 @@ export class AppComponent implements OnInit {
     // testMerge3();
     // testNever();
     // testOf();
-    testRange();
+    // testRange();
+    testThrow();
   }
+}
+
+function testThrow() {
+  let result = Observable.throw(new Error('oops'))
+                          .startWith(7);
+  result.subscribe(x => console.log(x), e => console.error(e));
 }
 
 function testRange() {
