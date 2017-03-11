@@ -60,8 +60,23 @@ export class AppComponent implements OnInit {
     // testNever();
     // testOf();
     // testRange();
-    testThrow();
+    // testThrow();
+    testThrow2();
   }
+}
+
+function testThrow2() {
+  let interval = Observable.interval(1000);
+  let result = interval.mergeMap(x => {
+    return x === 3
+          ? Observable.throw('Third')
+          : Observable.of('a', 'b', 'c');
+  });
+
+  result.subscribe({
+    next: x => console.log(x),
+    error: e => console.error(e),
+  });
 }
 
 function testThrow() {
