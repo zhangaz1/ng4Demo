@@ -40,8 +40,23 @@ export class AppComponent implements OnInit {
     // testCombineLatest();
     // testConcat1();
     // testConcat2();
-    testCreate();
+    // testCreate();
+    testDefer();
   }
+}
+
+function testDefer() {
+  let clickOrInterval = Observable.defer(function() {
+    if(Math.random() > 0.5) {
+      return Observable.fromEvent(document, 'click');
+    } else {
+      return Observable.interval(1000);
+    }
+  });
+
+  clickOrInterval.subscribe(x => console.log('sub1:', x));
+  clickOrInterval.subscribe(x => console.log('sub2:', x));
+  clickOrInterval.subscribe(x => console.log('sub3:', x));
 }
 
 function testCreate() {
