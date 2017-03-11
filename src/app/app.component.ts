@@ -47,11 +47,13 @@ export class AppComponent implements OnInit {
 
 function testDefer() {
   let clickOrInterval = Observable.defer(function() {
-    if(Math.random() > 0.5) {
-      return Observable.fromEvent(document, 'click');
-    } else {
-      return Observable.interval(1000);
-    }
+    // if(Math.random() > 0.5) {
+    //   return Observable.fromEvent(document, 'click');
+    // } else {
+    //   return Observable.interval(1000);
+    // }
+    return Observable.interval(Math.random() * 3000)
+                    .scan((n: number) => n + 1, 0);
   });
 
   clickOrInterval.subscribe(x => console.log('sub1:', x));
