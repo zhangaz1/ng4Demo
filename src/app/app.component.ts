@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
 }
 
 function testFrom() {
-  var source = Observable.from([1, 2, 30]);
+  var source = Observable.from('abc');
   source.subscribe(n => console.log(n));
 }
 
