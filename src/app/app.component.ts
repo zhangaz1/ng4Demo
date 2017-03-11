@@ -55,8 +55,28 @@ export class AppComponent implements OnInit {
     // testFromPromise();
     // testInterval();
     // testMerge();
-    testMerge2();
+    // testMerge2();
+    testMerge3();
   }
+}
+
+function testMerge3() {
+  let source1 = Observable.interval(100)
+                          .timeInterval()
+                          .pluck('interval');
+
+  let source2 = Observable.interval(150)
+                          .timeInterval()
+                          .pluck('interval');
+
+  let source = Observable.merge(source1, source2)
+                          .take(10);
+
+  let subscription = source.subscribe({
+    next: x => console.log('Next:', x),
+    error: err => console.log('Error:', err),
+    complete: () => console.log('complete'),
+  });
 }
 
 function testMerge2() {
