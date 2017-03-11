@@ -67,8 +67,15 @@ export class AppComponent implements OnInit {
     // testUsing();
     // testWebSocket();
     // testZip();
-    testAudit();
+    // testAudit();
+    testAuditTime();
   }
+}
+
+function testAuditTime() {
+  let clicks = Observable.fromEvent(document, 'click');
+  let result = clicks.auditTime(1000);
+  result.subscribe(x => console.log(x));
 }
 
 function testAudit() {
