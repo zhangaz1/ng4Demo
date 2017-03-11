@@ -41,8 +41,18 @@ export class AppComponent implements OnInit {
     // testConcat1();
     // testConcat2();
     // testCreate();
-    testDefer();
+    // testDefer();
+    testReturn();
   }
+}
+
+function testReturn() {
+  let source = Observable.defer(() => Observable.of(42, 43)); // return 不可用
+  let subscription = source.subscribe(
+    x => console.log(`onNext: ${x}`),
+    e => console.log(`onError: ${e}`),
+    () => console.log('onComplete'),
+  )
 }
 
 function testDefer() {
