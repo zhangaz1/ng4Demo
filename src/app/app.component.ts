@@ -47,8 +47,26 @@ export class AppComponent implements OnInit {
     // testEmpty();
     // testMergeMap();
     // testForkJoin();
-    testFrom();
+    // testFrom();
+    testYield();
   }
+}
+
+function testYield() {
+  function* generateDoubles(seed) {
+    let i = seed;
+    while(true) {
+      yield i;
+      i = 2 * i;
+    }
+  }
+
+  let iterator = generateDoubles(3);
+  console.log(iterator.next());
+  console.log(iterator.next());
+  console.log(iterator.next());
+  // let result = Observable.from(iterator)
+  //                       .take(10);
 }
 
 function testFrom() {
