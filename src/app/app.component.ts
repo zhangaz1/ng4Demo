@@ -45,8 +45,24 @@ export class AppComponent implements OnInit {
     // testReturn();
     // testPromise();
     // testEmpty();
-    testMergeMap();
+    // testMergeMap();
+    testForkJoin();
   }
+}
+
+function testForkJoin() {
+  let source = Observable.forkJoin(
+    Observable.of(42),
+    Observable.range(3, 4),
+    Observable.from([1, 2, 3]),
+    Promise.resolve(56),
+  );
+
+  source.subscribe({
+    next: x => console.log('onNext:', x),
+    error: err => console.log('onError:', err),
+    complete: () => console.log('onComplete'),
+  });
 }
 
 function testMergeMap() {
