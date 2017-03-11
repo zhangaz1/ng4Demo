@@ -57,8 +57,19 @@ export class AppComponent implements OnInit {
     // testMerge();
     // testMerge2();
     // testMerge3();
-    testNever();
+    // testNever();
+    testOf();
   }
+}
+
+function testOf() {
+  let numbers = Observable.of(1, 2, 3);
+  let letters = Observable.of('a', 'b', 'c');
+  var interval = Observable.interval(1000);
+  var result = numbers.concat(letters)
+                      .concat(interval);
+
+  result.subscribe(x => console.log(x));
 }
 
 function testNever() {
@@ -70,7 +81,6 @@ function testNever() {
             // .startWith(7)
             .subscribe(x => console.log(x), info, info);
 }
-
 
 function testMerge3() {
   let source1 = Observable.interval(100)
