@@ -43,8 +43,15 @@ export class AppComponent implements OnInit {
     // testCreate();
     // testDefer();
     // testReturn();
-    testPromise();
+    // testPromise();
+    testEmpty();
   }
+}
+
+function testEmpty() {
+  let result = Observable.empty()
+                      .startWith(7);
+  result.subscribe(x => console.log('onNext:', x));
 }
 
 function testPromise() {
