@@ -44,8 +44,23 @@ export class AppComponent implements OnInit {
     // testDefer();
     // testReturn();
     // testPromise();
-    testEmpty();
+    // testEmpty();
+    testMergeMap();
   }
+}
+
+function testMergeMap() {
+  let interval = Observable.interval(1000);
+  let result = interval.mergeMap(
+    x => {
+      console.log(x);
+      return x % 2 === 1
+        ? Observable.of('a', 'b', 'c')
+        : Observable.empty();
+    }
+  );
+
+  result.subscribe(x => console.log(x));
 }
 
 function testEmpty() {
