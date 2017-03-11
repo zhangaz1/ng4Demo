@@ -63,15 +63,37 @@ export class AppComponent implements OnInit {
     // testThrow();
     // testThrow2();
     // testTimer();
-    testToAsync();
+    // testToAsync();
+    // testUsing();
+    // testWebSocket();
+    // testZip();
+    testAudit();
   }
+}
+
+function testAudit() {
+  let clicks = Observable.fromEvent(document, 'click');
+  let result = clicks.audit(ev => Observable.interval(1000));
+  result.subscribe(x => console.log(x));
+}
+
+function testZip() {
+
+}
+
+function testWebSocket() {
+
+}
+
+function testUsing() {
+  // Observable.using()
 }
 
 function testToAsync() {
   let add = (x, y) => x + y;
-  let asyncAdd = Observable.toAsync(add);
-  let source = asyncAdd(3, 4);
-  source.subscribe(x => console.log(x));
+  // let asyncAdd = Observable.toAsync(add);
+  // let source = asyncAdd(3, 4);
+  // source.subscribe(x => console.log(x));
 }
 
 function testTimer() {
