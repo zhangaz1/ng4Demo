@@ -62,8 +62,16 @@ export class AppComponent implements OnInit {
     // testRange();
     // testThrow();
     // testThrow2();
-    testTimer();
+    // testTimer();
+    testToAsync();
   }
+}
+
+function testToAsync() {
+  let add = (x, y) => x + y;
+  let asyncAdd = Observable.toAsync(add);
+  let source = asyncAdd(3, 4);
+  source.subscribe(x => console.log(x));
 }
 
 function testTimer() {
