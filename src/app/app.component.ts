@@ -56,9 +56,21 @@ export class AppComponent implements OnInit {
     // testInterval();
     // testMerge();
     // testMerge2();
-    testMerge3();
+    // testMerge3();
+    testNever();
   }
 }
+
+function testNever() {
+  function info() {
+    console.log('Will not be called');
+  }
+
+  Observable.never()
+            // .startWith(7)
+            .subscribe(x => console.log(x), info, info);
+}
+
 
 function testMerge3() {
   let source1 = Observable.interval(100)
