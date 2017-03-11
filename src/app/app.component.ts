@@ -54,8 +54,18 @@ export class AppComponent implements OnInit {
     // testFromEventPattern();
     // testFromPromise();
     // testInterval();
-    testMerge();
+    // testMerge();
+    testMerge2();
   }
+}
+
+function testMerge2() {
+  let timer1 = Observable.interval(1000).take(100);
+  let timer2 = Observable.interval(2000).take(6);
+  let timer3 = Observable.interval(500).take(10);
+  var concurrent = 2;
+  var merged = Observable.merge(timer1, timer2, timer3, concurrent);
+  merged.subscribe(x => console.log(x));
 }
 
 function testMerge() {
