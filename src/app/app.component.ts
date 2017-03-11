@@ -61,6 +61,22 @@ function testInterval() {
   var numbers = Observable.interval(1000);
   numbers.subscribe(x => console.log(x));
   console.log('start');
+
+  var source = Observable
+                  .interval(500 /* ms */)
+                  .timeInterval()
+                  .take(3);
+var subscription = source.subscribe(
+                      function (x) {
+                        console.log('Next:', x);
+                      },
+                      function (err) {
+                        console.log('Error: ' + err);
+                      },
+                      function () {
+                        console.log('Completed');
+                      }
+                    );
 }
 
 function testFromPromise() {
