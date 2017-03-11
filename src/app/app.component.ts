@@ -52,8 +52,15 @@ export class AppComponent implements OnInit {
     // testFromSet();
     // testFromEvent();
     // testFromEventPattern();
-    testFromPromise();
+    // testFromPromise();
+    testInterval();
   }
+}
+
+function testInterval() {
+  var numbers = Observable.interval(1000);
+  numbers.subscribe(x => console.log(x));
+  console.log('start');
 }
 
 function testFromPromise() {
