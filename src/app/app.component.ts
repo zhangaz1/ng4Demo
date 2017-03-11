@@ -35,8 +35,79 @@ export class AppComponent implements OnInit {
     // testConvertingToObservable();
     // testCreateObservable();
     // testControllingFlow();
-    testProduceingValue();
+    // testProduceingValue();
+    // testApplication();
+    // testCombineLatest();
+    // testConcat1();
+    // testConcat2();
+    testCreate();
   }
+}
+
+function testCreate() {
+  let result = Observable.create(function(subscriber) {
+    subscriber.next(Math.random());
+    subscriber.next(Math.random());
+    subscriber.next(Math.random());
+    subscriber.complete();
+  });
+  result.subscribe(x => console.log(x));
+}
+
+function testConcat2() {
+  let timer1 = Observable.interval(1000).take(10);
+  timer1.subscribe({
+    next: n => console.log('timer1:', n),
+    complete: () => console.log('timer1 complete'),
+  });
+  let timer2 = Observable.interval(2000).take(6);
+  timer2.subscribe({
+    next: n => console.log('timer2:', n),
+    complete: () => console.log('timer2 complete'),
+  });
+  let timer3 = Observable.interval(500).take(10);
+  timer3.subscribe({
+    next: n => console.log('timer3:', n),
+    complete: () => console.log('timer3 complete'),
+  });
+  var result = Observable.concat(timer1, timer2, timer3);
+  result.subscribe({
+    next: n => console.log('result:', n),
+    complete: () => console.log('result complete'),
+  });
+}
+
+function testConcat1() {
+  let timer = Observable.interval(1000).take(4);
+  timer.subscribe({
+    complete: () => console.log('timer complete'),
+  });
+  var sequence = Observable.range(1, 10);
+  sequence.subscribe({
+    complete: () => console.log('sequence complete'),
+  });
+  let result = Observable.concat(timer, sequence);
+  result.subscribe(n => console.log(n));
+}
+
+function testCombineLatest() {
+  let weight = Observable.of(70, 72, 76, 79, 75);
+  let height = Observable.from([1.76, 1.77, 1.78]);
+  let bmi = Observable.combineLatest(weight, height, (w, h) => w / (h * h));
+  bmi.subscribe(x => console.log('BMI is:', x))
+}
+
+function testApplication() {
+  let button = document.createElement('input');
+  button.type = 'button';
+  button.value = 'count';
+  
+  let body = document.querySelector('body');
+  body.appendChild(button);
+
+  Observable.fromEvent(button, 'click')
+          .scan((count: number) => count + 1,  0)
+          .subscribe(count => console.log('count:', count));
 }
 
 function testProduceingValue() {
