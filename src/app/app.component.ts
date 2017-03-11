@@ -54,6 +54,7 @@ function testForkJoin() {
   let source = Observable.forkJoin(
     Observable.of(42),
     Observable.range(3, 4),
+    Observable.empty(),
     Observable.from([1, 2, 3]),
     Promise.resolve(56),
   );
