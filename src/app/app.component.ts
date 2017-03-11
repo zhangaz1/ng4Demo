@@ -42,8 +42,18 @@ export class AppComponent implements OnInit {
     // testConcat2();
     // testCreate();
     // testDefer();
-    testReturn();
+    // testReturn();
+    testPromise();
   }
+}
+
+function testPromise() {
+  let source = Observable.defer(() => Promise.resolve(42));
+  let subscription = source.subscribe(
+    x => console.log(`onNext: ${x}`),
+    e => console.log(`onError: ${e}`),
+    () => console.log('onComplete'),
+  );
 }
 
 function testReturn() {
@@ -52,7 +62,7 @@ function testReturn() {
     x => console.log(`onNext: ${x}`),
     e => console.log(`onError: ${e}`),
     () => console.log('onComplete'),
-  )
+  );
 }
 
 function testDefer() {
