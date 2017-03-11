@@ -61,8 +61,15 @@ export class AppComponent implements OnInit {
     // testOf();
     // testRange();
     // testThrow();
-    testThrow2();
+    // testThrow2();
+    testTimer();
   }
+}
+
+function testTimer() {
+  let numbers = Observable.timer(3000, 1000);
+  numbers.subscribe(x => console.log(x));
+  console.log('start');
 }
 
 function testThrow2() {
