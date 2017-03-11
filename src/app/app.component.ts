@@ -51,7 +51,11 @@ export class AppComponent implements OnInit {
 function testEmpty() {
   let result = Observable.empty()
                       .startWith(7);
-  result.subscribe(x => console.log('onNext:', x));
+  result.subscribe({
+    next: x => console.log('onNext:', x),
+    error: err => console.log('onError:', err),
+    complete: () => console.log('onComplete'),
+  });
 }
 
 function testPromise() {
