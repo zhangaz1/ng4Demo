@@ -68,8 +68,16 @@ export class AppComponent implements OnInit {
     // testWebSocket();
     // testZip();
     // testAudit();
-    testAuditTime();
+    // testAuditTime();
+    testBuffer();
   }
+}
+
+function testBuffer() {
+  let clicks = Observable.fromEvent(document, 'click');
+  let interval = Observable.interval(1000);
+  let buffered = interval.buffer(clicks);
+  buffered.subscribe(x => console.log(x));
 }
 
 function testAuditTime() {
