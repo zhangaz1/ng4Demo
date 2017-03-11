@@ -48,8 +48,15 @@ export class AppComponent implements OnInit {
     // testMergeMap();
     // testForkJoin();
     // testFrom();
-    testYield();
+    // testYield();
+    testFromSet();
   }
+}
+
+function testFromSet() {
+  let s = new Set(['foo', window]);
+  Observable.from(s)
+          .subscribe(x => console.log(x));
 }
 
 function testYield() {
