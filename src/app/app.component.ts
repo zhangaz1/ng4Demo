@@ -50,8 +50,24 @@ export class AppComponent implements OnInit {
     // testFrom();
     // testYield();
     // testFromSet();
-    testFromEvent();
+    // testFromEvent();
+    testFromEventPattern();
   }
+}
+
+function testFromEventPattern() {
+  function addClickHandler(handler) {
+    document.addEventListener('click', handler);
+  }
+
+  function removeClickHandler(handler) {
+    document.removeEventListener('click', handler);
+  }
+
+  var clicks = Observable.fromEventPattern(
+                            addClickHandler,
+                            removeClickHandler,
+                          ).subscribe(x => console.log(x));
 }
 
 function testFromEvent() {
