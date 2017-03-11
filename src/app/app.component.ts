@@ -51,8 +51,16 @@ export class AppComponent implements OnInit {
     // testYield();
     // testFromSet();
     // testFromEvent();
-    testFromEventPattern();
+    // testFromEventPattern();
+    testFromPromise();
   }
+}
+
+function testFromPromise() {
+  let source = Observable.fromPromise(Promise.reject('err'));
+  source.subscribe({
+    error: err => console.log(err),
+  })
 }
 
 function testFromEventPattern() {
