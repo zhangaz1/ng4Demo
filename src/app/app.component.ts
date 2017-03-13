@@ -75,8 +75,8 @@ export class AppComponent implements OnInit {
 }
 
 function testBufferCount() {
-  let clicks = Observable.fromEvent(document, 'click');
-  var buffered = clicks.bufferCount(3, 2);
+  let clicks = Observable.interval(1000); // Observable.fromEvent(document, 'click');
+  var buffered = clicks.bufferCount(3, 5);
   buffered.subscribe(x => console.log(x));
 }
 
