@@ -69,8 +69,15 @@ export class AppComponent implements OnInit {
     // testZip();
     // testAudit();
     // testAuditTime();
-    testBuffer();
+    // testBuffer();
+    testBufferCount();
   }
+}
+
+function testBufferCount() {
+  let clicks = Observable.fromEvent(document, 'click');
+  var buffered = clicks.bufferCount(2);
+  buffered.subscribe(x => console.log(x));
 }
 
 function testBuffer() {
