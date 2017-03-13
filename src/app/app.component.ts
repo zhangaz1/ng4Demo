@@ -72,13 +72,15 @@ export class AppComponent implements OnInit {
     // testBuffer();
     // testBufferCount();
     // testBufferTime();
-    testBufferToggle();
+    // testBufferToggle();
     testBufferWhen();
   }
 }
 
 function testBufferWhen() {
-
+  let clicks = Observable.fromEvent(document, 'click');
+  let buffered = clicks.bufferWhen(() => Observable.interval(1000 + Math.random() * 4000));
+  buffered.subscribe(x => console.log(x));
 }
 
 function testBufferToggle() {
