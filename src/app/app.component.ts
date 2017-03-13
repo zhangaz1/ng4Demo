@@ -71,8 +71,21 @@ export class AppComponent implements OnInit {
     // testAuditTime();
     // testBuffer();
     // testBufferCount();
-    testBufferTime();
+    // testBufferTime();
+    testBufferToggle();
   }
+}
+
+function testBufferToggle() {
+  let clicks = Observable.fromEvent(document, 'click');
+  var openings = Observable.interval(1000);
+  let buffered = clicks.bufferToggle(
+    openings, 
+    i => i % 2 
+          ? Observable.interval(500) 
+          : Observable.empty()
+  );
+  buffered.subscribe(x => console.log(x));
 }
 
 function testBufferTime() {
