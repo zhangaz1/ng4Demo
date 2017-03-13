@@ -73,7 +73,12 @@ export class AppComponent implements OnInit {
     // testBufferCount();
     // testBufferTime();
     testBufferToggle();
+    testBufferWhen();
   }
+}
+
+function testBufferWhen() {
+
 }
 
 function testBufferToggle() {
