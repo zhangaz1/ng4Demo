@@ -77,7 +77,7 @@ export class AppComponent implements OnInit {
 
 function testBufferTime() {
   let clicks = Observable.fromEvent(document, 'click');
-  let buffered = clicks.bufferTime(2000, 5000);
+  let buffered = clicks.bufferTime(5000, 2000);
   buffered.subscribe(x => console.log(x));
 }
 
