@@ -14,6 +14,9 @@ import { HeroDetailComponent }  from './detail/hero-detail.component';
 import { HeroSearchComponent }  from './search/hero-search.component';
 import { HeroFormComponent }    from './form/hero-form.component';
 
+import { MyChildViewComponent }       from './detail/my-child-view.component';
+import { AfterViewComponent }       from './detail/after-view.component';
+
 @NgModule({
     imports: [
         CoreModule,
@@ -26,6 +29,8 @@ import { HeroFormComponent }    from './form/hero-form.component';
         HeroDetailComponent,
         HeroSearchComponent,
         HeroFormComponent,
+        MyChildViewComponent,
+        AfterViewComponent,
     ],
     exports: [
         HeroesComponent,
