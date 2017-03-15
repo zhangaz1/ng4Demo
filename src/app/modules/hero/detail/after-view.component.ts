@@ -7,6 +7,8 @@ import {
 
 import { MyChildViewComponent } from './my-child-view.component';
 
+import { Logger }     from './../../../core/services/logger.service';
+
 @Component({
     selector: 'after-view',
     template: `
@@ -19,6 +21,8 @@ import { MyChildViewComponent } from './my-child-view.component';
 export class AfterViewComponent implements AfterViewInit, AfterViewChecked {
     private prevHero = '';
     comment = '';
+
+    constructor(private logger: Logger) { }
 
     @ViewChild(MyChildViewComponent)
     viewChild: MyChildViewComponent;
@@ -38,7 +42,7 @@ export class AfterViewComponent implements AfterViewInit, AfterViewChecked {
     }
 
     logIt(msg) {
-        console.log(msg);
+        this.logger.log(msg);
     }
 
     doSomething() {

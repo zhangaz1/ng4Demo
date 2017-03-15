@@ -10,4 +10,11 @@ export class Logger {
         console.log(message);
     }
 
+    tick() {
+        this.tickThen(() => {});
+    }
+
+    tickThen(fn: () => any) {
+        setTimeout(fn, 0);
+    }
 }
