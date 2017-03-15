@@ -14,6 +14,8 @@ import { UserService,
 import { EventBetterLogger }      from './event-better-logger.service';
 import { requestOptionsProvider } from './default-request-options.service';
 
+import { SpyDirective }     from './directives/spy.directive';
+
 import { TitleComponent }       from './title.component';
 
 import { throwIfAlreadyLoaded }     from './module-import-guard';
@@ -26,9 +28,11 @@ import { throwIfAlreadyLoaded }     from './module-import-guard';
         InMemoryWebApiModule.forRoot(InMemoryDataService),         
     ],
     declarations: [
+        SpyDirective,
         TitleComponent,        
     ],
     exports: [
+        SpyDirective,
         TitleComponent,        
     ],
     providers: [
