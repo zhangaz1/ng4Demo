@@ -4,7 +4,7 @@ import {
         OnDestroy,
      }     from '@angular/core';
 
-import { Logger as LoggerService, } from './../logger.service';
+import { Logger as LoggerService, } from './../services/logger.service';
 
 let nextId = 0;
 

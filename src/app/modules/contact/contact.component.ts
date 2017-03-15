@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, Optional } from '@angular/core';
 
 import { Contact, ContactService }         from './contact.service';
-import { UserService }                     from './../../core/user.service';
+import { UserService }                     from './../../core/services/user.service';
 
 import { testServerToken }   from './../../inject-tokens';
 

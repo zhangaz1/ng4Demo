@@ -1,8 +1,8 @@
 import { Http }     from '@angular/http';
 
 // ???
-import { Logger }             from './../../core/logger.service';
-import { UserService }        from './../../core/user.service';
+import { Logger }             from './../../core/services/logger.service';
+import { UserService }        from './../../core/services/user.service';
 
 import { HeroService }  from './hero.service';
 

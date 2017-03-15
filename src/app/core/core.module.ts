@@ -6,17 +6,17 @@ import { CommonModule }     from '@angular/common';
 import { HttpModule }       from '@angular/http';
 
 import { InMemoryWebApiModule }   from 'angular-in-memory-web-api';
-import { InMemoryDataService }    from './in-memory-data.service';
+import { InMemoryDataService }    from './services/in-memory-data.service';
 
-import { Logger }                 from './logger.service';
+import { Logger }                 from './services/logger.service';
 import { UserService,
-        UserServiceConfig }       from './user.service';
-import { EventBetterLogger }      from './event-better-logger.service';
-import { requestOptionsProvider } from './default-request-options.service';
+        UserServiceConfig }       from './services/user.service';
+import { EventBetterLogger }      from './services/event-better-logger.service';
+import { requestOptionsProvider } from './services/default-request-options.service';
 
 import { SpyDirective }     from './directives/spy.directive';
 
-import { TitleComponent }       from './title.component';
+import { TitleComponent }       from './components/title.component';
 
 import { throwIfAlreadyLoaded }     from './module-import-guard';
 

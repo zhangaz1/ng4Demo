@@ -3,7 +3,7 @@ import { Headers, Http }    from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Logger }   from './../../core/logger.service';
+import { Logger }   from './../../core/services/logger.service';
 
 import { Hero }         from './../../models/hero';
 
