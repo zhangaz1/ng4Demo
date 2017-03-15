@@ -10,7 +10,8 @@
   <li *ngFor="let hero of heroes; trackBy:trackByHeroes" 
       [class.selected]="hero === selectedHero"
       [@heroState]="hero.state"
-      (click)="onSelect(hero)">
+      (click)="onSelect(hero)"
+      mySpy >
     <span class="badge">{{hero.id}}</span>
     <span class="text">{{hero.name}}</span>
 
@@ -18,7 +19,7 @@
   </li>
 </ul>
 
-<div *ngIf="selectedHero" mySpy>
+<div *ngIf="selectedHero" >
   <h2>
     {{selectedHero.name | uppercase}} is my hero
   </h2>
