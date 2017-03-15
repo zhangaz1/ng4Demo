@@ -17,6 +17,9 @@ import { HeroFormComponent }    from './form/hero-form.component';
 import { MyChildViewComponent }       from './detail/my-child-view.component';
 import { AfterViewComponent }       from './detail/after-view.component';
 import { AfterViewParentComponent }       from './detail/after-view-parent.component';
+import { AfterContentComponent, 
+    AfterContentParentComponent }       from './detail/after-content.component';
+
 
 @NgModule({
     imports: [
@@ -33,6 +36,8 @@ import { AfterViewParentComponent }       from './detail/after-view-parent.compo
         MyChildViewComponent,
         AfterViewComponent,
         AfterViewParentComponent,
+        AfterContentComponent, 
+        AfterContentParentComponent,
     ],
     exports: [
         HeroesComponent,
