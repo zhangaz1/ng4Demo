@@ -17,6 +17,7 @@ import { requestOptionsProvider } from './services/default-request-options.servi
 import { SpyDirective }     from './directives/spy.directive';
 
 import { TitleComponent }       from './components/title.component';
+import { OnChangesComponent }       from './components/on-changes.component';
 
 import { throwIfAlreadyLoaded }     from './module-import-guard';
 
@@ -29,11 +30,13 @@ import { throwIfAlreadyLoaded }     from './module-import-guard';
     ],
     declarations: [
         SpyDirective,
-        TitleComponent,        
+        TitleComponent,
+        OnChangesComponent,
     ],
     exports: [
         SpyDirective,
-        TitleComponent,        
+        TitleComponent,
+        OnChangesComponent,    
     ],
     providers: [
         requestOptionsProvider,
