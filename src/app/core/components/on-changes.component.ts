@@ -10,6 +10,7 @@ import { Hero }     from './../../models/hero';
 @Component({
     selector: 'on-changes',
     template: `
+        <h3>On Change</h3>
         <div class="hero">
             <p>{{hero.name}} can {{power}}</p>
 

@@ -7,6 +7,7 @@
     {{ model.name?.length }}
 
     <on-changes [hero]="model" [power]="model.power"></on-changes>
+    <do-check [hero]="model" [power]="model.power"></do-check>
 
     <form (ngSubmit)="onSubmit(heroForm)" #heroForm="ngForm">
 

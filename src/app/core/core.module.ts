@@ -18,6 +18,7 @@ import { SpyDirective }     from './directives/spy.directive';
 
 import { TitleComponent }       from './components/title.component';
 import { OnChangesComponent }       from './components/on-changes.component';
+import { DoCheckComponent }       from './components/do-check.component';
 
 import { throwIfAlreadyLoaded }     from './module-import-guard';
 
@@ -32,11 +33,13 @@ import { throwIfAlreadyLoaded }     from './module-import-guard';
         SpyDirective,
         TitleComponent,
         OnChangesComponent,
+        DoCheckComponent,
     ],
     exports: [
         SpyDirective,
         TitleComponent,
-        OnChangesComponent,    
+        OnChangesComponent,
+        DoCheckComponent,
     ],
     providers: [
         requestOptionsProvider,
