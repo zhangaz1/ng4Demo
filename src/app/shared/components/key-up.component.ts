@@ -19,6 +19,8 @@ import { Component }    from '@angular/core';
             <h2>Power Booster</h2>
             <p>Super power boost: {{ 2 | exponentialStrength: 10 }}
         </div>
+
+        <power-boost-calculator></power-boost-calculator>
     `,
 })
 export class KeyUpComponent {
