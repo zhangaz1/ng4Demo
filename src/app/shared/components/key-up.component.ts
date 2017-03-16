@@ -14,6 +14,11 @@ import { Component }    from '@angular/core';
 
         <p>The hero's birthday is {{ birthday | date:format | uppercase }}</p>
         <button (click)="toggleFormat()">Toggle Format</button>
+
+        <div>
+            <h2>Power Booster</h2>
+            <p>Super power boost: {{ 2 | exponentialStrength: 10 }}
+        </div>
     `,
 })
 export class KeyUpComponent {

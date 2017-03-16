@@ -7,7 +7,9 @@ import { RouterModule }     from '@angular/router';
 import { KeyUpComponent }       from './components/key-up.component';
 import { SizerComponent }       from './components/sizer.component';
 
-import { AwesomePipe }          from './awesome.pipe';
+import { AwesomePipe }          from './pipes/awesome.pipe';
+import { ExponentialStrengthPipe }          from './pipes/exponential-strength.pipe';
+
 import { HighlightDirective }   from './highlight.directive';
 
 @NgModule({
@@ -18,6 +20,7 @@ import { HighlightDirective }   from './highlight.directive';
         KeyUpComponent,
         SizerComponent,
         AwesomePipe,
+        ExponentialStrengthPipe,
         HighlightDirective,
     ],
     exports: [
@@ -27,6 +30,7 @@ import { HighlightDirective }   from './highlight.directive';
         KeyUpComponent,        
         SizerComponent,
         AwesomePipe,
+        ExponentialStrengthPipe,
         HighlightDirective,
     ],
 })
