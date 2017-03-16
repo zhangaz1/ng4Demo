@@ -12,7 +12,8 @@ import { Component }    from '@angular/core';
         <p>{{values.join(' | ')}}</p>
         <p>{{keys.join(' | ')}}</p>
 
-        <p>The hero's birthday is {{ birthday | date:'yyyy-MM-dd' }}</p>
+        <p>The hero's birthday is {{ birthday | date:format }}</p>
+        <button (click)="toggleFormat()">Toggle Format</button>
     `,
 })
 export class KeyUpComponent {
@@ -25,4 +26,16 @@ export class KeyUpComponent {
     }
 
     birthday = Date.now(); // new Date(1988, 3, 15);
+    toggle = true;
+
+    get format() {
+        return this.toggle 
+            ? 'shortDate'
+            : 'fullDate';
+            
+    }
+
+    toggleFormat() {
+        this.toggle = !this.toggle;
+    }
 }
