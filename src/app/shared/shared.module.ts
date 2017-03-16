@@ -11,7 +11,9 @@ import { AwesomePipe }          from './awesome.pipe';
 import { HighlightDirective }   from './highlight.directive';
 
 @NgModule({
-    imports: [],
+    imports: [
+        CommonModule,
+    ],
     declarations: [
         KeyUpComponent,
         SizerComponent,

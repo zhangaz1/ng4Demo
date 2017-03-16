@@ -10,7 +10,9 @@ import { Component }    from '@angular/core';
         />
         <p>{{box.value}}</p>
         <p>{{values.join(' | ')}}</p>
-        <p>{{keys.join(' | ')}}</p>        
+        <p>{{keys.join(' | ')}}</p>
+
+        <p>The hero's birthday is {{ birthday | date:'yyyy-MM-dd' }}</p>
     `,
 })
 export class KeyUpComponent {
@@ -21,4 +23,6 @@ export class KeyUpComponent {
         this.values.push(value);
         this.keys.push(key);
     }
+
+    birthday = Date.now(); // new Date(1988, 3, 15);
 }
