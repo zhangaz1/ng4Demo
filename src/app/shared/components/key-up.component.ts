@@ -12,7 +12,7 @@ import { Component }    from '@angular/core';
         <p>{{values.join(' | ')}}</p>
         <p>{{keys.join(' | ')}}</p>
 
-        <p>The hero's birthday is {{ birthday | date:format }}</p>
+        <p>The hero's birthday is {{ birthday | date:format | uppercase }}</p>
         <button (click)="toggleFormat()">Toggle Format</button>
     `,
 })
