@@ -5,12 +5,12 @@ import { Component }        from '@angular/core';
     template: `
         <h2>Heroes from JSON File</h2>
 
-        <div *ngFor="let hero of ('http://localhost:8080/mocks/heroes.json' | fetch)">
+        <div *ngFor="let hero of ('mocks/heroes.json' | fetch)">
             {{hero.name}}
         </div>
 
         <p>Heroes as JSON:
-            {{'http://localhost:8080/mocks/heroes.json' | fetch | json}}
+            {{'mocks/heroes.json' | fetch | json}}
         </p>
     `,
 })
