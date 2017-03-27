@@ -8,12 +8,14 @@ import { TohRoutingModule }     from './toh-routing.module';
 import { TohListComponent }             from './components/list/toh-list.component';
 import { TohListPromiseComponent }      from './components/list/toh-list.component.promise';
 import { WikiComponent }                from './components/wiki/wiki.component';
+import { FlyingComponent }              from './components/flying/flying.component';
 
 @NgModule({
     declarations: [
         TohListComponent,
         TohListPromiseComponent,
         WikiComponent,
+        FlyingComponent,
     ],
     imports: [
         JsonpModule,
