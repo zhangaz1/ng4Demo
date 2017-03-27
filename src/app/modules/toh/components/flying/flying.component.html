@@ -1,8 +1,23 @@
-New hero:
-<input type="text" #box
-    (keyup.enter)="addHero(box.value); box.value=''"
-    placeholder="hero name">
-<button (click)="reset()">Reset</button>
+<h2>Flying</h2>
+
+<p>
+    New hero:
+    <input type="text" #box
+        (keyup.enter)="addHero(box.value); box.value=''"
+        placeholder="hero name">
+    <input id="can-fly" type="checkbox" [(ngModel)]="canFly"> can fly   
+</p>
+
+<p>
+    <button (click)="reset()">Reset</button>
+</p>
+
+<h4>flying:</h4>
+<div *ngFor="let hero of (heroes | flying)">
+    {{hero.name}}
+</div>
+
+<h4>all:</h4>
 <div *ngFor="let hero of heroes">
     {{hero.name}}
 </div>

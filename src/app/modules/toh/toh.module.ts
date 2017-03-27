@@ -5,6 +5,8 @@ import { SharedModule }     from './../../shared/shared.module';
 
 import { TohRoutingModule }     from './toh-routing.module';
 
+import { FlyingPipe }           from './components/flying/flying.pipe';
+
 import { TohListComponent }             from './components/list/toh-list.component';
 import { TohListPromiseComponent }      from './components/list/toh-list.component.promise';
 import { WikiComponent }                from './components/wiki/wiki.component';
@@ -12,6 +14,7 @@ import { FlyingComponent }              from './components/flying/flying.compone
 
 @NgModule({
     declarations: [
+        FlyingPipe,
         TohListComponent,
         TohListPromiseComponent,
         WikiComponent,
