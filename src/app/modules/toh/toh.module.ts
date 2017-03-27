@@ -11,6 +11,7 @@ import { TohListComponent }             from './components/list/toh-list.compone
 import { TohListPromiseComponent }      from './components/list/toh-list.component.promise';
 import { WikiComponent }                from './components/wiki/wiki.component';
 import { FlyingComponent }              from './components/flying/flying.component';
+import { AsyncComponent }               from './components/async/async.component';
 
 @NgModule({
     declarations: [
@@ -19,6 +20,7 @@ import { FlyingComponent }              from './components/flying/flying.compone
         TohListPromiseComponent,
         WikiComponent,
         FlyingComponent,
+        AsyncComponent,
     ],
     imports: [
         JsonpModule,
