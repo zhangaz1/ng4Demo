@@ -6,6 +6,7 @@ import { TohListPromiseComponent }      from './components/list/toh-list.compone
 import { WikiComponent }                from './components/wiki/wiki.component';
 import { FlyingComponent }              from './components/flying/flying.component';
 import { AsyncComponent }               from './components/async/async.component';
+import { FetchComponent }               from './components/fetch/fetch.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'list', pathMatch: 'full', },
@@ -14,6 +15,7 @@ const routes: Routes = [
     { path: 'wiki', component: WikiComponent },
     { path: 'flying', component: FlyingComponent },
     { path: 'async', component: AsyncComponent },
+    { path: 'fetch', component: FetchComponent },
 ];
 
 @NgModule({
