@@ -9,6 +9,7 @@ export const routes: Routes = [
     {
         path: 'keyup',
         component: KeyUpComponent,
+        outlet: 'ro1',
     },
     { path: 'contact', component: ContactComponent },    
     // { path: 'contact', loadChildren: 'app/modules/contact/contact.module#ContactModule'},

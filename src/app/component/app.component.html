@@ -7,7 +7,7 @@
     <a routerLink="/crisis" routerLinkActive="active">Crisis</a>
     <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
     <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
-    <a routerLink="/keyup" routerLinkActive="active">Key Up</a>
+    <a [routerLink]="[{ outlets: { ro1: ['keyup'] } }]" routerLinkActive="active">Key Up</a>
     <a routerLink="/hero-form" routerLinkActive="active">Hero Form</a>
     <a routerLink="/toh" routerLinkActive="active">Toh</a>
     <a routerLink="/toh/list-promise" routerLinkActive="active">Toh Promise</a>
@@ -15,9 +15,11 @@
     <a routerLink="./toh/flying" routerLinkActive="active">Flying</a>
     <a routerLink="./toh/async" routerLinkActive="active">Async</a>
     <a routerLink="./toh/fetch" routerLinkActive="active">Fetch</a>
+    <!--<a [routerLink]="[{}]">Tohs</a>-->
 </nav>
 
 <router-outlet ></router-outlet>
+<router-outlet name="ro1"></router-outlet>
 
 <my-sizer [(mySize)]="fontSizePx"></my-sizer>
 <div [style.font-size.px]="fontSizePx">text xx</div>
