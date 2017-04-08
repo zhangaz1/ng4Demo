@@ -16,6 +16,7 @@ import { requestOptionsProvider } from './services/default-request-options.servi
 
 import { SpyDirective }     from './directives/spy.directive';
 
+import { PageNotFoundComponent }    from './components/page-not-found.component';
 import { TitleComponent }       from './components/title.component';
 import { OnChangesComponent }       from './components/on-changes.component';
 import { DoCheckComponent }       from './components/do-check.component';
@@ -31,12 +32,14 @@ import { throwIfAlreadyLoaded }     from './module-import-guard';
     ],
     declarations: [
         SpyDirective,
+        PageNotFoundComponent,
         TitleComponent,
         OnChangesComponent,
         DoCheckComponent,
     ],
     exports: [
         SpyDirective,
+        PageNotFoundComponent,
         TitleComponent,
         OnChangesComponent,
         DoCheckComponent,

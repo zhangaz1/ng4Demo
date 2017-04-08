@@ -14,6 +14,9 @@ const routes: Routes = [
     }, {
         path: 'heroes',
         component: HeroesComponent,
+        data: {
+            title: 'Heroes List',
+        },
     }, {
         path: 'dashboard',
         component: DashboardComponent,
