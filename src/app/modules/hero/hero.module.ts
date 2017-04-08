@@ -1,14 +1,10 @@
 import { NgModule }     from '@angular/core';
-import { RouterModule }     from '@angular/router';
 
-import { HeroListComponent }     from './components/list/hero-list.component';
+import { HeroRoutingModule }     from './hero-routing.module';
 
 @NgModule({
-    declarations: [
-        HeroListComponent,
-    ],
     imports: [
-        RouterModule,
+        HeroRoutingModule,
     ],
 })
 export class HeroModule { }
