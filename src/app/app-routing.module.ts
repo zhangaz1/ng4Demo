@@ -15,10 +15,10 @@ export const routes: Routes = [
     { path: 'crisis', loadChildren: 'app/modules/crisis/crisis.module#CrisisModule' },
     { path: 'toh', loadChildren: 'app/modules/toh/toh.module#TohModule' },
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    {
-        path: '**',
-        component: PageNotFoundComponent,
-    },
+    // {
+    //     path: '**',
+    //     component: PageNotFoundComponent,
+    // },
 ];
 
 @NgModule({
