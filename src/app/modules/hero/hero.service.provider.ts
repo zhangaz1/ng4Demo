@@ -6,7 +6,7 @@ import { UserService }        from './../../core/services/user.service';
 
 import { HeroService }  from './hero.service';
 
-let heroServiceFactory = (logger: Logger, userService: UserService, http: Http) => {
+export function heroServiceFactory (logger: Logger, userService: UserService, http: Http) {
     return new HeroService(logger, http, userService.user.isAuthorized);
 };
 
