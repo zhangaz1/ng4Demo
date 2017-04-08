@@ -11,9 +11,6 @@ import { CrisisListComponent }     from './modules/crisis/components/list/crisis
 
 
 const appRoutes: Routes = [{
-                            path: 'crisis-list',
-                            component: CrisisListComponent,
-                        }, {
                             path: '',
                             redirectTo: '/hero-list',
                             pathMatch: 'full',
@@ -28,7 +25,7 @@ const appRoutes: Routes = [{
     ],
     imports: [
         HeroModule,
-        CrisisModule,        
+        CrisisModule,
         RouterModule.forRoot(appRoutes),
     ],
     exports: [

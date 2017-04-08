@@ -1,10 +1,10 @@
 import { NgModule }     from '@angular/core';
 
-import { CrisisListComponent }     from './components/list/crisis-list.component';
+import { CrisisRoutingModule }     from './crisis-routing.module';
 
 @NgModule({
-    declarations: [
-        CrisisListComponent,
+    imports: [
+        CrisisRoutingModule,
     ],
 })
 export class CrisisModule { }
