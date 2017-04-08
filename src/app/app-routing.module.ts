@@ -12,7 +12,7 @@ const appRoutes: Routes = [{
                         }, {
                             path: '',
                             redirectTo: '/hero-list',
-                            pathMatch: 'prefix',
+                            pathMatch: 'full',
                         }, {
                             path: '**',
                             component: PageNotFoundComponent,
