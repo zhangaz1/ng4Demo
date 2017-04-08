@@ -7,12 +7,16 @@ import { HeroListComponent }     from './modules/hero/components/list/hero-list.
 
 
 const appRoutes: Routes = [{
-    path: 'hero-list',
-    component: HeroListComponent,
-}, {
-    path: '**',
-    component: PageNotFoundComponent,
-}];
+                            path: 'hero-list',
+                            component: HeroListComponent,
+                        }, {
+                            path: '',
+                            redirectTo: 'hero-list',
+                            pathMatch: 'full',
+                        }, {
+                            path: '**',
+                            component: PageNotFoundComponent,
+                        }];
 
 @NgModule({
     declarations: [
