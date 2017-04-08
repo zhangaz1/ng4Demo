@@ -3,7 +3,6 @@ import { NgModule }       from '@angular/core';
 import { FormsModule }    from '@angular/forms';
 import { HttpModule }     from '@angular/http';
 
-import { PageNotFoundComponent } from './page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './component/app.component';
@@ -11,7 +10,6 @@ import { AppComponent } from './component/app.component';
 
 @NgModule({
   declarations: [
-    PageNotFoundComponent,
     AppComponent,    
   ],
   imports: [
@@ -21,6 +19,6 @@ import { AppComponent } from './component/app.component';
     AppRoutingModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

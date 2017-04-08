@@ -10,6 +10,9 @@ const appRoutes: Routes = [{
 }];
 
 @NgModule({
+    declarations: [
+        PageNotFoundComponent,
+    ],
     imports: [
         RouterModule.forRoot(appRoutes),
     ],
