@@ -1,6 +1,8 @@
 import { NgModule }                 from '@angular/core';
 import { Routes, RouterModule }     from '@angular/router';
 
+import { CoreModule }     from './../../core/core.module';
+
 import { HeroListComponent }     from './components/list/hero-list.component';
 
 const appRoutes: Routes = [{
@@ -13,6 +15,7 @@ const appRoutes: Routes = [{
         HeroListComponent,
     ],
     imports: [
+        CoreModule,
         RouterModule.forChild(appRoutes),
     ],
 })
