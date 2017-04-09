@@ -10,9 +10,6 @@ const appRoutes: Routes = [{
                         }];
 
 @NgModule({
-    declarations: [
-        CrisisListComponent,
-    ],
     imports: [       
         RouterModule.forRoot(appRoutes),
     ],

@@ -9,9 +9,6 @@ const appRoutes: Routes = [{
                         }];
 
 @NgModule({
-    declarations: [
-        HeroListComponent,
-    ],
     imports: [
         RouterModule.forRoot(appRoutes),
     ],
