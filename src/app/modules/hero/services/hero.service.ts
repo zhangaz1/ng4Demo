@@ -29,6 +29,6 @@ export class HeroService {
         let findHeroById = heroes => heroes.find(idFinder);
 
         return this.getHeroes()
-            .then(findHeroById);
+                    .then(findHeroById);
     }
 }
