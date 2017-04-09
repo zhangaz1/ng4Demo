@@ -13,7 +13,7 @@ const appRoutes: Routes = [{
         HeroListComponent,
     ],
     imports: [
-        RouterModule.forRoot(appRoutes),
+        RouterModule.forChild(appRoutes),
     ],
 })
 export class HeroRoutingModule { }

@@ -14,7 +14,7 @@ const appRoutes: Routes = [{
         CrisisListComponent,
     ],
     imports: [       
-        RouterModule.forRoot(appRoutes),
+        RouterModule.forChild(appRoutes),
     ],
 })
 export class CrisisRoutingModule { }
