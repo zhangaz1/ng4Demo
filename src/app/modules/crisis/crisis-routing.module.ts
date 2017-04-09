@@ -7,6 +7,7 @@ import {
 import { CrisisCenterComponent }     from './components/center/crisis-center.component';
 import { CrisisHomeComponent }       from './components/home/crisis-home.component';
 import { CrisisListComponent }       from './components/list/crisis-list.component';
+import { CrisisDetailComponent }       from './components/detail/crisis-detail.component';
 
 
 const appRoutes: Routes = [{
@@ -18,7 +19,10 @@ const appRoutes: Routes = [{
                                 children: [{
                                     path: '',
                                     component: CrisisHomeComponent,
-                                }, ],
+                                }, {
+                                    path: ':id',
+                                    component: CrisisDetailComponent,
+                                }],
                             }, ],
                         }, ];
 
@@ -27,6 +31,7 @@ const appRoutes: Routes = [{
         CrisisCenterComponent,
         CrisisHomeComponent,
         CrisisListComponent,
+        CrisisDetailComponent,
     ],
     imports: [       
         RouterModule.forChild(appRoutes),
