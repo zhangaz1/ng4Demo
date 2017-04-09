@@ -27,17 +27,18 @@ export class HeroListComponent implements OnInit {
     private selectedId: number;
 
     constructor(
-        private service: HeroService,
         private route: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        private service: HeroService,
     ) { }
 
     ngOnInit() {
-        let getHeroes = (params: Params) => {
-            this.selectedId = +params['id'];
-            return this.service
-                        .getHeroes();
-        }
+        let getHeroes = 
+            (params: Params) => {
+                this.selectedId = +params['id'];
+                return this.service
+                            .getHeroes();
+            };
 
         this.heroes = this.route
                         .params
@@ -49,6 +50,7 @@ export class HeroListComponent implements OnInit {
     }
 
     onSelect(hero: Hero) {
-        this.router.navigate(['/hero', hero.id]);
+        this.router
+            .navigate(['/hero', hero.id]);
     }
 }
