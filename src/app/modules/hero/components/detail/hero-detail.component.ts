@@ -29,17 +29,33 @@ export class HeroDetailComponent implements OnInit {
         private service: HeroService,        
     ) { }
 
+    // ngOnInit() {
+    //     let getHero = 
+    //         (params: Params) => this.service.getHero(+params['id']);
+        
+    //     let updateThisHero = 
+    //         hero => this.hero = hero;
+
+    //     this.route
+    //         .params
+    //         .switchMap(getHero)
+    //         .subscribe(updateThisHero);
+    // }
+
     ngOnInit() {
         let getHero = 
-            (params: Params) => this.service.getHero(+params['id']);
+                id => this.service.getHero(id);
         
         let updateThisHero = 
-            hero => this.hero = hero;
+                hero => this.hero = hero;
 
-        this.route
-            .params
-            .switchMap(getHero)
-            .subscribe(updateThisHero);
+        let getId = 
+                () => +this.route.snapshot.params['id'];
+        
+        Promise.resolve()
+            .then(getId)
+            .then(getHero)
+            .then(updateThisHero);                    
     }
 
     gotoHeroes() {
