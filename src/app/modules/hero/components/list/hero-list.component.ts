@@ -51,6 +51,6 @@ export class HeroListComponent implements OnInit {
 
     onSelect(hero: Hero) {
         this.router
-            .navigate([hero.id], { relativeTo: this.route});
+            .navigate(['./hero', hero.id]);
     }
 }
