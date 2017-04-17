@@ -62,7 +62,7 @@ export class HeroDetailComponent implements OnInit {
         let heroId = this.hero && this.hero.id;
         this.router
             .navigate([
-                '/hero-list', {
+                './hero-list', {
                     id: heroId,
                     foo: 'foo',
                 },
