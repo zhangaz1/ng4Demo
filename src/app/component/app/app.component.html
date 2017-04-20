@@ -6,6 +6,7 @@
   <a routerLink="./" routerLinkActive="active">Home</a>
   <a routerLink="./crisis-center" routerLinkActive="active">Crisis Center</a>
   <a routerLink="./hero-list" routerLinkActive="active">Heor List</a>
+  <a [routerLink]="[{ outlets: { popup: ['compose'] }}]">Contact</a>
 </nav>
 
 <router-outlet></router-outlet>
