@@ -30,7 +30,7 @@ export class ComposeMessageComponent {
     closePopup() {
         this.router.navigate([{
             outlets: {
-                popup:null,
+                popup: null,
             },
         },]);
     }
