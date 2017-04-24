@@ -1,7 +1,8 @@
 <h3>ADMIN</h3>
 
 <nav>
-    <a routerLink="./" routerLinkActive="active">        
+    <a routerLink="./" routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">        
         Dashboard</a>
 
     <a routerLink="./crises" routerLinkActive="active">
@@ -11,5 +12,4 @@
         Manager Heroes</a>
 </nav>
 
-<!--<router-outlet></router-outlet>-->
-<!--[routerLinkActiveOptions]="{ exact: true }">-->
+<router-outlet></router-outlet>
