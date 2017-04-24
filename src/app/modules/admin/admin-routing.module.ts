@@ -3,7 +3,8 @@ import { Routes, RouterModule }     from '@angular/router';
 
 import { CoreModule }     from './../../core/core.module';
 
-import { AuthGuard }     from './../../common/auth-guard.service';
+import { AuthService }         from './../../common/auth.service';
+import { AuthGuardService }     from './../../common/auth-guard.service';
 
 import { AdminComponent }     from './components/admin/admin.component';
 
@@ -15,7 +16,7 @@ const adminRoutes: Routes = [{
     path: 'admin',
     component: AdminComponent,
     canActivate: [
-        AuthGuard,
+        AuthGuardService,
     ],
     children: [{
         path: '',
@@ -44,7 +45,8 @@ const adminRoutes: Routes = [{
         RouterModule.forChild(adminRoutes),
     ],
     providers: [
-        AuthGuard,
+        AuthService,
+        AuthGuardService,
     ],
 })
 export class AdminRoutingModule { }
