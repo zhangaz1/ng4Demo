@@ -5,6 +5,8 @@ import { CoreModule }     from './core/core.module';
 
 import { PageNotFoundComponent } from './page-not-found.component';
 
+import { AdminModule }     from './modules/admin/admin.module';
+
 import { HeroModule }   from './modules/hero/hero.module';
 import { CrisisModule }     from './modules/crisis/crisis.module';
 
@@ -34,6 +36,7 @@ const appRoutes: Routes = [{
     ],
     imports: [
         CoreModule,        
+        AdminModule,
         HeroModule,
         CrisisModule,
         RouterModule.forRoot(appRoutes),
