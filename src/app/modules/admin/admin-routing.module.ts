@@ -3,7 +3,6 @@ import { Routes, RouterModule }     from '@angular/router';
 
 import { CoreModule }     from './../../core/core.module';
 
-import { AuthService }         from './../../common/auth.service';
 import { AuthGuardService }     from './../../common/auth-guard.service';
 
 import { AdminComponent }     from './components/admin/admin.component';
@@ -43,10 +42,6 @@ const adminRoutes: Routes = [{
     imports: [
         CoreModule,
         RouterModule.forChild(adminRoutes),
-    ],
-    providers: [
-        AuthService,
-        AuthGuardService,
     ],
 })
 export class AdminRoutingModule { }
