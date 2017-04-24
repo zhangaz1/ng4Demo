@@ -4,7 +4,7 @@ import { CoreModule }   from './core/core.module';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent } from './component/app/app.component';
+import { AppComponent } from './components/app/app.component';
 
 
 @NgModule({
