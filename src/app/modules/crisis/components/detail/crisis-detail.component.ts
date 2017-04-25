@@ -1,4 +1,4 @@
-import { Component }     from '@angular/core';
+import { Component, OnInit }     from '@angular/core';
 import { ActivatedRoute, Router }    from '@angular/router';
 
 import { CanComponentDeactivate }     from './../../../../common/can-deactivate-guard.service';
@@ -10,7 +10,7 @@ import { Crisis, CrisisService }     from './../../services/crisis.service';
     selector: 'crisis-detail',
     templateUrl: './crisis-detail.component.html',
 })
-export class CrisisDetailComponent implements CanComponentDeactivate {
+export class CrisisDetailComponent implements CanComponentDeactivate, OnInit {
     crisis: Crisis;
     editName: string;
 
@@ -31,6 +31,14 @@ export class CrisisDetailComponent implements CanComponentDeactivate {
         return confirm('Discard changes?');
     }
 
+    ngOnInit() {
+        this.route.data
+                .subscribe((data: {crisis: Crisis }) => {
+                    this.crisis = data.crisis;
+                    this.editName = this.crisis.name;
+                });
+    }
+
     cancel() {
         this.gotoCrises();
     }
@@ -40,5 +48,11 @@ export class CrisisDetailComponent implements CanComponentDeactivate {
         this.gotoCrises();
     }
 
-    gotoCrises() { }
+    gotoCrises() {
+        let crisisId = this.crisis
+                            ? this.crisis.id
+                            : null;
+
+        this.router.navigate(['../', { id: crisisId, foo: 'foo' }], { relativeTo: this.route });
+    }
 }

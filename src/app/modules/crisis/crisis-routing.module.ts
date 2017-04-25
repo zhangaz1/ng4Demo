@@ -9,6 +9,7 @@ import { CoreModule }     from './../../core/core.module';
 import { CanDeactivateGuardService }     from './../../common/can-deactivate-guard.service';
 
 import { CrisisService }     from './services/crisis.service';
+import { CrisisDetailResolverService }     from './services/crisis-detail-resolver.service';
 
 import { CrisisCenterComponent }     from './components/center/crisis-center.component';
 import { CrisisHomeComponent }       from './components/home/crisis-home.component';
@@ -31,6 +32,9 @@ const appRoutes: Routes = [{
                                     canDeactivate: [
                                         CanDeactivateGuardService,
                                     ],
+                                    resolve: {
+                                        crisis: CrisisDetailResolverService,
+                                    },
                                 }, ],
                             }, ],
                         }, ];
@@ -48,6 +52,7 @@ const appRoutes: Routes = [{
     ],
     providers: [
         CrisisService,
+        CrisisDetailResolverService,
     ],
 })
 export class CrisisRoutingModule { }
