@@ -1,22 +1,16 @@
 import { Injectable }     from '@angular/core';
-import { CanDeactivate, RouterStateSnapshot, ActivatedRouteSnapshot }    from '@angular/router';
+import { CanDeactivate }    from '@angular/router';
 import { Observable }        from 'rxjs/Observable';
 
-import { CrisisDetailComponent }     from './../modules/crisis/components/detail/crisis-detail.component';
+export interface CanComponentDeactivate {
+    canDeactivate: () => Observable<boolean> | Promise<boolean> | boolean;
+}
 
 @Injectable()
-export class CanDeactivateGuardService implements CanDeactivate<CrisisDetailComponent> {
-    canDeactivate(
-        component: CrisisDetailComponent,
-        route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot,
-    ): Promise<boolean> | boolean {
-        console.log(route.params['id']);
-        console.log(state.url);
-        if(!component.crisis || component.crisis.name === component.editName) {
-            return true;
-        }
-
-        return confirm('Discard changes?');
+export class CanDeactivateGuardService implements CanDeactivate<CanComponentDeactivate> {
+    canDeactivate(component: CanComponentDeactivate) {
+        return component.canDeactivate 
+                    ? component.canDeactivate()
+                    : true;
     }
 }

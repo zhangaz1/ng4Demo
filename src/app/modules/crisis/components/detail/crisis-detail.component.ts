@@ -1,13 +1,32 @@
 import { Component }     from '@angular/core';
+import { ActivatedRoute, Router }    from '@angular/router';
+
+import { CanComponentDeactivate }     from './../../../../common/can-deactivate-guard.service';
 
 @Component({
     moduleId: module.id,
     selector: 'crisis-detail',
     templateUrl: './crisis-detail.component.html',
 })
-export class CrisisDetailComponent {
+export class CrisisDetailComponent implements CanComponentDeactivate {
     crisis;
     editName: string;
+
+    constructor(
+        private route: ActivatedRoute,
+        private router: Router,
+    ) { }
+
+    canDeactivate(): Promise<boolean> | boolean {
+        console.log(this.route.snapshot.params['id']);
+        console.log(this.router.url);
+        
+        if(!this.crisis || this.crisis.name === this.editName) {
+            return true;
+        }
+
+        return confirm('Discard changes?');
+    }
 
     cancel() {
         this.gotoCrises();
