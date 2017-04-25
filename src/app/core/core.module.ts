@@ -6,6 +6,7 @@ import './rxjs-extensions';
 
 import { AuthService }         from './../common/auth.service';
 import { AuthGuardService }     from './../common/auth-guard.service';
+import { CanDeactivateGuardService }     from './../common/can-deactivate-guard.service';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { AuthGuardService }     from './../common/auth-guard.service';
     providers: [
         AuthService,
         AuthGuardService,
+        CanDeactivateGuardService,
     ],
 })
 export class CoreModule { }

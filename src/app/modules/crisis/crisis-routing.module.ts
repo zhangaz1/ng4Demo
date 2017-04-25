@@ -4,6 +4,8 @@ import {
     RouterModule
 }     from '@angular/router';
 
+import { CanDeactivateGuardService }     from './../../common/can-deactivate-guard.service';
+
 import { CrisisCenterComponent }     from './components/center/crisis-center.component';
 import { CrisisHomeComponent }       from './components/home/crisis-home.component';
 import { CrisisListComponent }       from './components/list/crisis-list.component';
@@ -22,7 +24,10 @@ const appRoutes: Routes = [{
                                 }, {
                                     path: ':id',
                                     component: CrisisDetailComponent,
-                                }],
+                                    canDeactivate: [
+                                        CanDeactivateGuardService,
+                                    ],
+                                }, ],
                             }, ],
                         }, ];
 
