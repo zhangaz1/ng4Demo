@@ -3,18 +3,21 @@ import { ActivatedRoute, Router }    from '@angular/router';
 
 import { CanComponentDeactivate }     from './../../../../common/can-deactivate-guard.service';
 
+import { Crisis, CrisisService }     from './../../services/crisis.service';
+
 @Component({
     moduleId: module.id,
     selector: 'crisis-detail',
     templateUrl: './crisis-detail.component.html',
 })
 export class CrisisDetailComponent implements CanComponentDeactivate {
-    crisis;
+    crisis: Crisis;
     editName: string;
 
     constructor(
         private route: ActivatedRoute,
         private router: Router,
+        private service: CrisisService,
     ) { }
 
     canDeactivate(): Promise<boolean> | boolean {

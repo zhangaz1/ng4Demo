@@ -18,6 +18,9 @@ let crisisPromise = Promise.resolve(CRISIS);
 
 @Injectable()
 export class CrisisService {
+
+    static nextCrisisId: number = 100;
+
     getCrisises() {
         return crisisPromise;
     }

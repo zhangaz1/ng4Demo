@@ -4,7 +4,11 @@ import {
     RouterModule
 }     from '@angular/router';
 
+import { CoreModule }     from './../../core/core.module';
+
 import { CanDeactivateGuardService }     from './../../common/can-deactivate-guard.service';
+
+import { CrisisService }     from './services/crisis.service';
 
 import { CrisisCenterComponent }     from './components/center/crisis-center.component';
 import { CrisisHomeComponent }       from './components/home/crisis-home.component';
@@ -38,8 +42,12 @@ const appRoutes: Routes = [{
         CrisisListComponent,
         CrisisDetailComponent,
     ],
-    imports: [       
+    imports: [
+        CoreModule,    
         RouterModule.forChild(appRoutes),
+    ],
+    providers: [
+        CrisisService,
     ],
 })
 export class CrisisRoutingModule { }
