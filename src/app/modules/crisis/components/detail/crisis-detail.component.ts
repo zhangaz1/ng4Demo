@@ -5,4 +5,18 @@ import { Component }     from '@angular/core';
     selector: 'crisis-detail',
     templateUrl: './crisis-detail.component.html',
 })
-export class CrisisDetailComponent { }
+export class CrisisDetailComponent {
+    crisis;
+    editName: string;
+
+    cancel() {
+        this.gotoCrises();
+    }
+
+    save() {
+        this.crisis.name = this.editName;
+        this.gotoCrises();
+    }
+
+    gotoCrises() { }
+}
