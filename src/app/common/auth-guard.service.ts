@@ -4,12 +4,14 @@ import {
     Router, 
     ActivatedRouteSnapshot,
     RouterStateSnapshot,
+    CanActivateChild,
+    NavigationExtras,
 }     from '@angular/router';
 
 import { AuthService }     from './auth.service';
 
 @Injectable()
-export class AuthGuardService implements CanActivate {
+export class AuthGuardService implements CanActivate, CanActivateChild {
 
     constructor(
         private authService: AuthService,
@@ -37,8 +39,14 @@ export class AuthGuardService implements CanActivate {
         }
 
         this.authService.redirectUrl = url;
+        let sessionId = 123456789;
 
-        this.router.navigate(['login']);
+        let navigationExtras: NavigationExtras = {
+            queryParams: { 'session_id': sessionId, },
+            fragment: 'anchor',
+        };
+
+        this.router.navigate(['login', navigationExtras]);
         return false;
     }
 }
