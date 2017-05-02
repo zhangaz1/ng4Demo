@@ -19,12 +19,15 @@ export class CrisisDetailResolverService implements Resolve<Crisis>{
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot,
     ): Promise<Crisis> {
+        console.log('resolve start...')
+
         let id = route.params['id'];
 
         return this.service
                     .getCrisis(id)
                     .then(crisis => {
                         if(crisis){
+                            console.log('resolve end...')
                             return crisis;
                         } else {
                             this.router.navigate(['/crisis-center']);

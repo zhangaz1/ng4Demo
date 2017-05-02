@@ -18,7 +18,9 @@ export class CrisisDetailComponent implements CanComponentDeactivate, OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private service: CrisisService,
-    ) { }
+    ) {
+        console.log('crisis-detail constructor');
+    }
 
     canDeactivate(): Promise<boolean> | boolean {
         console.log(this.route.snapshot.params['id']);
@@ -32,6 +34,8 @@ export class CrisisDetailComponent implements CanComponentDeactivate, OnInit {
     }
 
     ngOnInit() {
+        console.log('crisis-detail on init');
+        
         this.route.data
                 .subscribe((data: {crisis: Crisis }) => {
                     this.crisis = data.crisis;
