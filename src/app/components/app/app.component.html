@@ -9,6 +9,9 @@
   <a routerLink="./admin" routerLinkActive="active">Admin</a>
   <a routerLink="./login" routerLinkActive="active">Login</a>  
   <a [routerLink]="[{ outlets: { popup: ['compose'] }}]">Contact</a>
+
+  <button (click)='toHeroList()'>Hero-list</button>
+  <button (click)='toCrisisCenter()'>crisis-center</button>
 </nav>
 
 <router-outlet></router-outlet>
