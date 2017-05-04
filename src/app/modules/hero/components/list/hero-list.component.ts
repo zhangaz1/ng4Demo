@@ -33,6 +33,8 @@ export class HeroListComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+    console.log('hero list start');
+        
         let getHeroes = 
             (params: Params) => {
                 this.selectedId = +params['id'];

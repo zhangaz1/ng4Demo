@@ -8,7 +8,7 @@ import { PageNotFoundComponent } from './page-not-found.component';
 import { AdminModule }     from './modules/admin/admin.module';
 import { LoginModule }     from './modules/login/login.module';
 
-import { HeroModule }   from './modules/hero/hero.module';
+// import { HeroModule }   from './modules/hero/hero.module';
 import { CrisisModule }     from './modules/crisis/crisis.module';
 
 import { ComposeMessageComponent }     from './components/popup/compose-message.component';
@@ -18,16 +18,19 @@ import { CrisisListComponent }     from './modules/crisis/components/list/crisis
 
 
 const appRoutes: Routes = [{
+                            path: 'compose',
+                            component: ComposeMessageComponent,
+                            outlet: 'popup',
+                        }, {
+                            path: 'hero',
+                            loadChildren: 'app/modules/hero/hero.module#HeroModule',
+                        }, {
                             path: '',
                             redirectTo: '/hero-list',
                             pathMatch: 'full',
                         }, {
                             path: '**',
                             component: PageNotFoundComponent,
-                        }, {
-                            path: 'compose',
-                            component: ComposeMessageComponent,
-                            outlet: 'popup',
                         }, ];
 
 @NgModule({
@@ -39,7 +42,7 @@ const appRoutes: Routes = [{
         CoreModule,        
         AdminModule,
         LoginModule,
-        HeroModule,
+        // HeroModule,
         CrisisModule,
         RouterModule.forRoot(appRoutes),
     ],

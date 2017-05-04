@@ -47,7 +47,7 @@ const appRoutes: Routes = [{
         CrisisDetailComponent,
     ],
     imports: [
-        CoreModule,    
+        CoreModule,
         RouterModule.forChild(appRoutes),
     ],
     providers: [
