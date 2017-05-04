@@ -23,7 +23,9 @@ import {
     templateUrl: './hero-list.component.html',
 })
 export class HeroListComponent implements OnInit {
-    heroes: Observable<Hero[]>;
+    heroes: Observable<Hero[]>; 
+    sessionId: Observable<string>;
+    token: Observable<string>;
 
     private selectedId: number;
 
@@ -34,8 +36,6 @@ export class HeroListComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-    console.log('hero list start');
-        
         let getHeroes = 
             (params: Params) => {
                 this.selectedId = +params['id'];
@@ -46,6 +46,14 @@ export class HeroListComponent implements OnInit {
         this.heroes = this.route
                         .params
                         .switchMap(getHeroes);
+
+        this.sessionId = this.route
+                            .queryParams
+                            .map(params => params['session_id'] || 'None');
+
+        this.token = this.route
+                        .fragment
+                        .map(fragment => fragment || 'None');
     }
 
     isSelected(hero: Hero) {
