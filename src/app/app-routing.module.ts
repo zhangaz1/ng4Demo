@@ -5,6 +5,8 @@ import { CoreModule }     from './core/core.module';
 
 import { PageNotFoundComponent } from './page-not-found.component';
 
+import { AuthGuardService }     from './common/auth-guard.service';
+
 import { AdminModule }     from './modules/admin/admin.module';
 import { LoginModule }     from './modules/login/login.module';
 
@@ -24,7 +26,10 @@ const appRoutes: Routes = [{
                         }, {
                             path: 'hero',
                             loadChildren: 'app/modules/hero/hero.module#HeroModule',
-                        }, {
+                            canLoad: [
+                                AuthGuardService,
+                            ],
+                    }, {
                             path: '',
                             redirectTo: '/hero-list',
                             pathMatch: 'full',
