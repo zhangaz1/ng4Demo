@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 
 import {
+    NavigationExtras,
     Router,
     ActivatedRoute,
     Params,
@@ -52,7 +53,14 @@ export class HeroListComponent implements OnInit {
     }
 
     onSelect(hero: Hero) {
+        let sessionId = 123456789;
+
+        let navigationExtras: NavigationExtras = {
+            queryParams: { 'session_id': sessionId, },
+            fragment: 'anchor',
+        };
+
         this.router
-            .navigate(['./hero', hero.id]);
+            .navigate(['./hero', hero.id], navigationExtras);
     }
 }

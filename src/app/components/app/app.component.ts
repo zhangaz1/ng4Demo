@@ -22,7 +22,7 @@ export class AppComponent {
         fragment: 'anchor',
     };
 
-    this.router.navigate(['hero-list'], navigationExtras);
+    this.router.navigate(['hero'], navigationExtras);
   }
 
   toCrisisCenter() {

@@ -5,6 +5,7 @@ import {
 }     from '@angular/core';
 
 import {
+    NavigationExtras,
     Router,
     ActivatedRoute,
     Params,
@@ -59,6 +60,12 @@ export class HeroDetailComponent implements OnInit {
     }
 
     gotoHeroes() {
+        let navigationExtras: NavigationExtras = {
+            queryParamsHandling: 'preserve',
+            preserveFragment: true,
+            relativeTo: this.route,
+        };
+
         let heroId = this.hero && this.hero.id;
         this.router
             .navigate([
@@ -66,8 +73,6 @@ export class HeroDetailComponent implements OnInit {
                     id: heroId,
                     foo: 'foo',
                 },
-            ], {
-                relativeTo: this.route,
-            });
+            ], navigationExtras);
     }
 }
