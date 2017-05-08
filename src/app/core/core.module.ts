@@ -1,8 +1,9 @@
 import { NgModule }         from '@angular/core';
-import { FormsModule }      from '@angular/forms';
 import { BrowserModule }    from '@angular/platform-browser';
 
 import './rxjs-extensions';
+
+import { ShareModule }      from './../share/share.module';
 
 import { AuthService }         from './../common/auth.service';
 import { AuthGuardService }     from './../common/auth-guard.service';
@@ -12,7 +13,7 @@ import { CanDeactivateGuardService }     from './../common/can-deactivate-guard.
 @NgModule({
     exports: [
         BrowserModule,
-        FormsModule,
+        ShareModule,
     ],    
     providers: [
         AuthService,
