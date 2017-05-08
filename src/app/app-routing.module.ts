@@ -1,5 +1,5 @@
 import { NgModule }                 from '@angular/core';
-import { Routes, RouterModule }     from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules, }     from '@angular/router';
 
 import { CoreModule }     from './core/core.module';
 
@@ -9,9 +9,6 @@ import { AuthGuardService }     from './common/auth-guard.service';
 
 import { AdminModule }     from './modules/admin/admin.module';
 import { LoginModule }     from './modules/login/login.module';
-
-// import { HeroModule }   from './modules/hero/hero.module';
-// import { CrisisModule }     from './modules/crisis/crisis.module';
 
 import { ComposeMessageComponent }     from './components/popup/compose-message.component';
 
@@ -50,9 +47,9 @@ const appRoutes: Routes = [{
         CoreModule,        
         AdminModule,
         LoginModule,
-        // HeroModule,
-        // CrisisModule,
-        RouterModule.forRoot(appRoutes),
+        RouterModule.forRoot(appRoutes, {
+            preloadingStrategy: PreloadAllModules,
+        }),
     ],
     exports: [
         RouterModule,
