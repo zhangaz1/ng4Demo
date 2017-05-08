@@ -31,7 +31,7 @@ const appRoutes: Routes = [{
                             ],
                     }, {
                             path: '',
-                            redirectTo: '/hero-list',
+                            redirectTo: '/hero/list',
                             pathMatch: 'full',
                         }, {
                             path: '**',
