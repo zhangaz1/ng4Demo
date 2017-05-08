@@ -5,6 +5,7 @@ import { CoreModule }     from './core/core.module';
 
 import { PageNotFoundComponent } from './page-not-found.component';
 
+import { SelectivePreloadingStrategyService } from './common/selective-preloading-strategy.service';
 import { AuthGuardService }     from './common/auth-guard.service';
 
 import { AdminModule }     from './modules/admin/admin.module';
@@ -29,6 +30,9 @@ const appRoutes: Routes = [{
                         }, {
                             path: 'crisis-center',
                             loadChildren: 'app/modules/crisis/crisis.module#CrisisModule',
+                            data: {
+                                preload: true,
+                            },
                         }, {
                             path: '',
                             redirectTo: '/hero/list',
@@ -48,11 +52,14 @@ const appRoutes: Routes = [{
         AdminModule,
         LoginModule,
         RouterModule.forRoot(appRoutes, {
-            preloadingStrategy: PreloadAllModules,
+            preloadingStrategy: SelectivePreloadingStrategyService,
         }),
     ],
     exports: [
         RouterModule,
+    ],
+    providers: [
+        SelectivePreloadingStrategyService,
     ],
 })
 export class AppRoutingModule { }
