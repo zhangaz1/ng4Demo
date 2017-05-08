@@ -1,4 +1,5 @@
 import { NgModule }       from '@angular/core';
+import { Router }     from '@angular/router';
 
 import { CoreModule }   from './core/core.module';
 
@@ -17,4 +18,8 @@ import { AppComponent } from './components/app/app.component';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(router: Router) {
+    console.log('Routes:', JSON.stringify(router.config, undefined, 2));
+  }
+}
