@@ -4,9 +4,7 @@ import {
     RouterModule
 }     from '@angular/router';
 
-// import { CoreModule }     from './../../core/core.module';
-import { CommonModule }     from '@angular/common';
-import { FormsModule }      from '@angular/forms';
+import { ShareModule }      from './../../share/share.module';
 
 import { CanDeactivateGuardService }     from './../../common/can-deactivate-guard.service';
 
@@ -49,9 +47,7 @@ const appRoutes: Routes = [{
         CrisisDetailComponent,
     ],
     imports: [
-        // CoreModule,
-        CommonModule,
-        FormsModule,
+        ShareModule,
         RouterModule.forChild(appRoutes),
     ],
     providers: [
