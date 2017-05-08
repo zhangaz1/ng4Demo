@@ -4,7 +4,9 @@ import {
     RouterModule
 }     from '@angular/router';
 
-import { CoreModule }     from './../../core/core.module';
+// import { CoreModule }     from './../../core/core.module';
+import { CommonModule }     from '@angular/common';
+import { FormsModule }      from '@angular/forms';
 
 import { CanDeactivateGuardService }     from './../../common/can-deactivate-guard.service';
 
@@ -18,7 +20,7 @@ import { CrisisDetailComponent }       from './components/detail/crisis-detail.c
 
 
 const appRoutes: Routes = [{
-                            path: 'crisis-center',
+                            path: '',
                             component: CrisisCenterComponent,
                             children: [{ 
                                 path: '',
@@ -47,7 +49,9 @@ const appRoutes: Routes = [{
         CrisisDetailComponent,
     ],
     imports: [
-        CoreModule,
+        // CoreModule,
+        CommonModule,
+        FormsModule,
         RouterModule.forChild(appRoutes),
     ],
     providers: [

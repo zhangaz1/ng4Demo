@@ -11,7 +11,7 @@ import { AdminModule }     from './modules/admin/admin.module';
 import { LoginModule }     from './modules/login/login.module';
 
 // import { HeroModule }   from './modules/hero/hero.module';
-import { CrisisModule }     from './modules/crisis/crisis.module';
+// import { CrisisModule }     from './modules/crisis/crisis.module';
 
 import { ComposeMessageComponent }     from './components/popup/compose-message.component';
 
@@ -29,7 +29,10 @@ const appRoutes: Routes = [{
                             canLoad: [
                                 AuthGuardService,
                             ],
-                    }, {
+                        }, {
+                            path: 'crisis-center',
+                            loadChildren: 'app/modules/crisis/crisis.module#CrisisModule',
+                        }, {
                             path: '',
                             redirectTo: '/hero/list',
                             pathMatch: 'full',
@@ -48,7 +51,7 @@ const appRoutes: Routes = [{
         AdminModule,
         LoginModule,
         // HeroModule,
-        CrisisModule,
+        // CrisisModule,
         RouterModule.forRoot(appRoutes),
     ],
     exports: [
