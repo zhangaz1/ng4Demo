@@ -24,7 +24,10 @@
 <div>
     Pick your favorite hero（<label><input type="checkbox" checked (change)="showSad=!showSad">show sad</label>）
     <select [(ngModel)]="selectedHero">
-        <option *ngFor="let hero of heroes | async" 
-            [ngValue]="hero">{{ hero.name }}</option>
+       <ng-container *ngFor="let hero of heroes | async" >
+           <ng-container *ngIf="showSad || hero.emotion !== 'sad'">
+                <option [ngValue]="hero">{{ hero.name }}</option>
+           </ng-container>
+        </ng-container>
     </select>
 </div>
