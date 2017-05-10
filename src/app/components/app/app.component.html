@@ -2,6 +2,50 @@
   {{title}}
 </h1>
 
+<div>
+  <div>
+    <div>
+      <P *ngIf="true">true</P>
+      <P *ngIf="false">false</P>
+    </div>
+    <div>
+      <P [style.display]="'block'">block</P>
+      <P [style.display]="'none'">none</P>    
+    </div>
+    <div>
+      <div template="ngIf true">true</div>
+      <div template="ngIf false">false</div>
+    </div>
+    <div>
+      <!--<ng-template [ngIf]="true">
+        <div>true</div>
+      </ng-template>-->
+    </div>
+  </div>
+
+  <div>
+    <div *ngFor="let hero of [3,7,2]; let i = index; let odd=odd; trackBy: trackById" [class.odd]="odd">
+      for {{ [hero, i, odd].join(',') }}
+    </div>
+    <div template="ngFor let hero of [3, 7,2]; let i=index; let odd=odd; trackBy:trackById" [class.odd]="odd">
+      for {{ [hero, i, odd].join(',') }}
+    </div>
+    <!--<ng-template ngFor let-hero [ngForOf]="[3,7,2]" let-i="index" let-odd="odd" [ngFOrTrackBy]="trackById">
+      <div [class.odd]="odd">
+        for {{ [hero, i, odd].join(',') }}
+      </div>
+    </ng-template>-->
+  </div>
+
+  <div>
+    <div [ngSwitch]="{color:'green'}?.color">
+      <div *ngSwitchCase="'red'">Red</div>
+      <div *ngSwitchCase="'green'">Green</div>
+      <div *ngSwitchCase="'blue'">Blue</div>
+    </div>
+  </div>
+</div>
+
 <nav>
   <a routerLink="./" routerLinkActive="active">Home</a>
   <a routerLink="./crisis-center" routerLinkActive="active">Crisis Center</a>
