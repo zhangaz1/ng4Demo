@@ -9,9 +9,14 @@ import { AuthService }         from './../common/auth.service';
 import { AuthGuardService }     from './../common/auth-guard.service';
 import { CanDeactivateGuardService }     from './../common/can-deactivate-guard.service';
 
+import { UnlessDirective }  from './../common/unless.directive';
 
 @NgModule({
+    declarations: [
+        UnlessDirective,
+    ],
     exports: [
+        UnlessDirective,
         BrowserModule,
         ShareModule,
     ],    
