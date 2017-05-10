@@ -19,3 +19,15 @@
     <a id="anchor"></a>
     <p>Token: {{ token | async }}</p>
 </div>
+
+
+<div>
+    Pick your favorite hero（<label><input type="checkbox" checked (change)="showSad=!showSad">show sad</label>）
+    <select [(ngModel)]="selectedHero">
+       <span *ngFor="let hero of heroes | async" >
+           <span a="showSad || hero.emotion !== 'sad'">
+                <option [ngValue]="hero">{{ hero.name }}({{ hero.emotion}})</option>
+           </span>
+        </span>
+    </select>
+</div>

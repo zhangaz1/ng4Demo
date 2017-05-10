@@ -27,6 +27,9 @@ export class HeroListComponent implements OnInit {
     sessionId: Observable<string>;
     token: Observable<string>;
 
+    selectedHero: Hero;
+    showSad = true;
+
     private selectedId: number;
 
     constructor(
